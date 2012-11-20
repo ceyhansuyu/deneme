@@ -1,0 +1,134 @@
+ 
+    <!-- INCLUDE tinymice.html -->
+  
+  
+
+ 
+<div class="sag_taraf_profil">
+       <div class="headerbar"> Forumlarý Yönet  </div>
+      <div class="sag_taraf_profil_ic">
+
+<div class="ayar_baslik">Grubu Düzenle </div>
+ <form id="gruplar" name="gruplar" method="post" action="sistem/forum_islemleri.php">  
+ 
+<table width="100%" border="0" cellspacing="5" cellpadding="0">  
+  
+     <tr>
+       <td width="57%" valign="top">Forum</td>
+    <td width="14%" valign="top">Kontroller</td>
+    <td width="9%" valign="top">Sýralama</td>
+    <td width="20%" valign="top">Moderatörler </td>
+  </tr>
+  
+  
+  <!-- BEGIN catrow -->
+       <!-- IF catrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+       
+       <td>
+      <strong> <a href="../kategoridisplay.php?k={catrow.KAT_ID}" target="_blank">{catrow.KAT_ADI}</a></strong>       </td>
+       <td>
+       
+       <a href="sistem/forum_sil.php?katID={catrow.KAT_ID}" onclick="return confirm('Bu kateogriyi Silmek istediðinizden emin misiniz? \n Tüm alt forumlar ve mesajlar da silinecektir')"><img src="{TEMA_YOLU}/images/ufak_sil.png" width="16" height="16" alt="Bu Kategoriyi Sil" title="Bu Kategoriyi Sil" /></a>
+       &nbsp;
+       <a href="index.php?do=forum_duzenle&katID={catrow.KAT_ID}#kat_duzenle"><img src="{TEMA_YOLU}/images/edit_ufak.png" width="16" height="16" alt="Bu Kategoriyi Düzenle" title="Bu Kategoriyi Düzenle" /></a>
+       &nbsp;
+       
+       
+       <a href="index.php?do=forum_ekle&katID={catrow.KAT_ID}#forum_ekle"><img src="{TEMA_YOLU}/images/ekle.png" width="16" height="16" alt="Bu Kategoriye Forum Ekle" title="Bu Kategoriye Forum Ekle" /></a>
+          
+          </td>
+       <td><label>
+         <input name="kat_sirala[{catrow.KAT_ID}]" type="text" id="kat_sirala[]" value="{catrow.SIRALAMA}" size="5" maxlength="5" />
+       </label></td>
+       <td></td>
+     </tr>
+     
+     <!-- BEGIN forumrow --> 
+       <!-- IF catrow.forumrow.S_ROW_COUNT is even -->
+       <tr class="row2">
+       <!-- ELSE -->	
+       <tr class="row1">
+       <!-- ENDIF -->
+       
+       <td>
+          
+      &nbsp;&nbsp;&nbsp;&nbsp; --- <a href="../forumdisplay.php?f={catrow.forumrow.FORUM_ID}" target="_blank">{catrow.forumrow.FORUM_ADI}</a>       </td>
+       <td>
+       
+       <a href="sistem/forum_sil.php?forumID={catrow.forumrow.FORUM_ID}" onclick="return confirm('Bu Forumu Silmek istediðinizden emin misiniz? \n Tüm alt forumlar ve mesajlar da silinecektir')"><img src="{TEMA_YOLU}/images/ufak_sil.png" width="16" height="16" alt="Bu Forumu Sil" title="Bu Forumu Sil" /></a>
+        &nbsp;  
+       <a href="index.php?do=forum_duzenle&forumID={catrow.forumrow.FORUM_ID}<!-- IF catrow.forumrow.LINK_MI -->#link_duzenle<!-- ELSE -->#forum_duzenle<!-- ENDIF -->"><img src="{TEMA_YOLU}/images/edit_ufak.png" width="16" height="16" alt="Bu Forumu Düzenle" title="Bu Forumu Düzenle" /></a>
+       
+              &nbsp;
+        <!-- IF catrow.forumrow.LINK_MI -->
+       
+       <!-- ELSE -->	
+              <a href="index.php?do=forum_ekle&forumID={catrow.forumrow.FORUM_ID}#forum_ekle">
+  <img src="{TEMA_YOLU}/images/ekle.png" width="16" height="16" alt="Bu Foruma Alt Forum Ekle" title="Bu Foruma Alt Forum Ekle" /></a>
+       <!-- ENDIF -->
+       
+
+    
+              
+       </td>
+       <td><label>
+         <input name="forum_sirala[{catrow.forumrow.FORUM_ID}]" type="text" id="forum_sirala[]" value="{catrow.forumrow.SIRALAMA}" size="5" maxlength="5" />
+       </label></td>
+       <td></td>
+     </tr>  
+     
+     
+     <!-- BEGIN altrow --> 
+       <!-- IF catrow.forumrow.altrow.S_ROW_COUNT is even -->
+       <tr class="row2">
+       <!-- ELSE -->	
+       <tr class="row1">
+       <!-- ENDIF -->
+       
+       <td>
+          
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --- <a href="../forumdisplay.php?f={catrow.forumrow.altrow.FORUM_ID}" target="_blank">{catrow.forumrow.altrow.FORUM_ADI}</a>       </td>
+       <td>
+       
+       <a href="sistem/forum_sil.php?forumID={catrow.forumrow.altrow.FORUM_ID}" onclick="return confirm('Bu Alt Forumu Silmek istediðinizden emin misiniz? \n Tüm alt forumlar ve mesajlar da silinecektir')"><img src="{TEMA_YOLU}/images/ufak_sil.png" width="16" height="16" alt="Bu Alt Forumu Sil" title="Bu Alt Forumu Sil" /></a>
+       
+               &nbsp;  
+       <a href="index.php?do=forum_duzenle&forumID={catrow.forumrow.altrow.FORUM_ID}#forum_duzenle"><img src="{TEMA_YOLU}/images/edit_ufak.png" width="16" height="16" alt="Bu Alt Forumu Düzenle" title="Bu Alt Forumu Düzenle" /></a>
+       
+       
+       </td>
+       <td><label>
+         <input name="alt_sirala[{catrow.forumrow.altrow.FORUM_ID}]" type="text" id="alt_sirala[]" value="{catrow.forumrow.altrow.SIRALAMA}" size="5" maxlength="5" />
+       </label></td>
+       <td></td>
+     </tr>      
+     
+     
+   <!-- END altrow -->    
+     
+     
+        
+      <!-- END forumrow --> 
+
+     
+   <!-- END catrow --> 
+
+  
+  
+  </table>
+
+
+  <div align="center">   
+    <input type="submit" name="button" id="button" value="Grubu Güncelle" class="buton" />
+  </div>
+</form>
+     <br />
+     
+     
+    </div>
+<!-- sag_taraf_profil_ic --> 
+    </div><!-- sag_taraf_profil --> 

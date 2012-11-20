@@ -1,0 +1,448 @@
+ 
+ 
+    <!-- INCLUDE tinymice.html -->
+  <form id="ayarlar" name="ayarlar" method="post" action="sistem/ayar_guncelle.php">
+  
+  
+
+ 
+<div class="sag_taraf_profil">
+       <div class="headerbar">
+        Genel Ayarlar
+       </div>
+      <div class="sag_taraf_profil_ic">
+   <input name="do" type="text" value="{DO}" style="display:none;">
+   
+ <div class="ayar_baslik">Admin Notu </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+    <tr class="row1">
+
+    <td width="34%" valign="top">Admin Notu:</td>
+    <td width="66%" valign="top"><textarea name="admin_notu" cols="60" rows="5" class="mceNoEditor" id="admin_notu">{ADMIN_NOTLARI}</textarea>
+      <br />
+    <span class="sag_taraf_profil_ic_desc">Adminlerin býraktýðý notlar</span>   
+    <br />
+    <input type="submit" name="button" id="button" value="Ayarlarý Güncelle" class="buton saga_cek" />
+      </td>
+  </tr>
+  </table>
+
+<div class="ayar_baslik">Site Durumu </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="33%" valign="top">&nbsp;</td>
+    <td width="67%" valign="top"><p>
+      <label class="yesno_yes">
+      <input name="site_durum" type="radio" id="site_durum_0" value="acik" {FORUM_DURUMU_ACIK} />
+        Site Açýk</label><label class="yesno_no">
+    <input type="radio" name="site_durum" value="kapali" id="site_durum_1" {FORUM_DURUMU_KAPALI} />Site Kapalý
+    </label>
+     
+   </td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="msn">Site kapalýysa sebebi:</label></td>
+    <td valign="top"><textarea name="forum_kapali_sebep" cols="45" rows="3" class="mceNoEditor"  id="biyografi2">{FORUM_KAPALI_SEBEP}</textarea>
+    <br />
+    <span class="sag_taraf_profil_ic_desc">Forum kapalý olduðunda ziyaretçilerin görebileceði not</span>
+    <br />
+        <input type="submit" name="button" id="button" value="Ayarlarý Güncelle" class="buton saga_cek" />
+
+    </td>
+  </tr>
+  </table>
+  
+ <div class="ayar_baslik">Diðer Ayarlar </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="33%" valign="top">Footer:</td>
+    <td width="67%" valign="top">
+    <textarea name="sitefooter" cols="45" rows="3" class="mceNoEditor" id="sitefooter">{FORUM_FOOTER}</textarea>
+        <br />
+    <span class="sag_taraf_profil_ic_desc">Sitenin footerý.</span>    </td>
+  </tr>
+  <tr>
+    <td valign="top">Script Yolu:</td>
+    <td valign="top">
+    <input name="script_yolu" type="text" class="" id="script_yolu" value="{FORUM_SCRIPT_YOLU}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Script yolu forumun bulunduðu klasördür.</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Server Ýsmi:</td>
+    <td valign="top">
+    <input name="server_adi" type="text" class="" id="server_adi" value="{FORUM_SERVER_ADI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Script yolu forumun serveri.</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Forum Adý:</td>
+    <td valign="top">
+    <input name="forum_adi" type="text" class="" id="forum_adi" value="{FORUM_ADI}" size="50" maxlength="100" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Script yolu forumun bulunduðu klasördür.</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Forum Tarifi:</td>
+    <td valign="top">
+    <input name="forum_desc" type="text" class="" id="forum_desc" value="{FORUM_TARIFI}" size="50" maxlength="100" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Script yolu forumun bulunduðu klasördür.</span>   
+     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Çerez Ön Eki</td>
+    <td valign="top">
+    <input name="cerez_on_eki" type="text" class="" id="cerez_on_eki" value="{FORUM_COOKIE_ON_EK}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum çerezlerinin ön eki.</span>   
+     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Çevrim Ýçi Zaman Aþýmý:</td>
+    <td valign="top">
+    <input name="cevrim_ici_zmn_asimi" type="text" class="" id="cevrim_ici_zmn_asimi" value="{FORUM_CEVRIMICI_ZMN_ASIMI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Online kullanýcýlarýn güncellendiði süre</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Çerez Zamaný:</td>
+    <td valign="top">
+    <input name="cerez_zamani" type="text" class="" id="cerez_zamani" value="{FORUM_COOKIE_ZMN}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Çerezlerin yok olma süresi.</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Flood Aralýðý:</td>
+    <td valign="top">
+    <input name="flood_zamani" type="text" class="" id="flood_zamani" value="{FORUM_FLOOD}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Ýki iþlem arasý süre.</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Arama Flood Aralýðý:</td>
+    <td valign="top">
+    <input name="arama_flood_zamani" type="text" class="" id="arama_flood_zamani" value="{FORUM_ARAMA_FLOOD}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Saniye cinsinden Ýki arama arasý süredir. Aþýldýðýnda kullanýcý uyarýlýr</span>   
+     </td>
+  </tr>
+    <tr>
+    <td valign="top">Maksimum Giriþ Deneme:</td>
+    <td valign="top">
+    <input name="maksimum_giris_deneme" type="text" class="" id="maksimum_giris_deneme" value="{FORUM_MAX_GIRIS_DENEME}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu sýnýr aþýldýðýnda belirli bir süre giriþ yapýlmasý engellenir.</span>   
+     </td>
+  </tr>
+  
+      <tr>
+    <td valign="top">Giriþ Ceza Süresi</td>
+    <td valign="top">
+    <input name="giris_ceza_zamani" type="text" class="" id="giris_ceza_zamani" value="{FORUM_GIRIS_CEZA}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Maksimum giriþ denemesi aþýlýnca verilecek ceza süresi.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Aktivasyon Yöntemi:</td>
+    <td valign="top">
+    <input name="aktivasyon_yontemi" type="text" class="" id="aktivasyon_yontemi" value="{FORUM_AKTIVASYON_YONTEMI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Aktivasyon yöntemi.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Forum Email:</td>
+    <td valign="top">
+    <input name="forum_email" type="text" class="" id="forum_email" value="{FORUM_EMAIL}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun eposta adresi.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Forum Açýlma Tarihi:</td>
+    <td valign="top">
+    <input name="forum_acilma_tarihi" type="text" class="" id="forum_acilma_tarihi" value="{FORUM_START_DATE}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun kurulma tarihi.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Sistem Zaman Dilimi:</td>
+    <td valign="top">
+    <input name="sistem_zaman_dilimi" type="text" class="" id="sistem_zaman_dilimi" value="{FORUM_SISTEM_ZMN_DILIMI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun varsayýlan Sistem Zaman Dilimi .</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Sistem Zaman Formatý:</td>
+    <td valign="top">
+    <input name="sistem_zaman_formati" type="text" class="" id="sistem_zaman_formati" value="{FORUM_ZAMAN_FORMATI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun varsayýlan sistem zaman formatý.</span>   
+     </td>
+  </tr>
+  
+  
+        <tr>
+    <td valign="top">Forum Dili:</td>
+    <td valign="top"><label>
+  <select name="forum_dili" id="forum_dili">
+    <option value="{FORUM_FORUM_DILI}">{FORUM_FORUM_DILI}</option>
+  </select>
+  </label>
+          <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun varsayýlan Dili.</span>   
+     </td>
+  </tr>
+        <tr>
+    <td valign="top">Forum Temasý:</td>
+    <td valign="top">
+    <input name="forum_temasi" type="text" class="" id="forum_temasi" value="{FORUM_TEMASI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu forumun varsayýlan temasý.</span>   
+         
+        </td>
+  </tr>
+  
+          <tr>
+    <td valign="top">Seo Durumu:</td>
+    <td valign="top">
+        <label class="yesno_yes">
+      <input type="radio" name="seo_aktif_mi" value="acik" id="seo_aktif_mi_0" {FORUM_SEO_ACIK} />
+      Açýk</label><label class="yesno_no">
+      <input type="radio" name="seo_aktif_mi" value="kapali" id="seo_aktif_mi_1" {FORUM_SEO_KAPALI} />
+      Kapalý</label>
+    <br />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Seo Durumu.</span>   
+         <br />
+        <input type="submit" name="button" id="button" value="Ayarlarý Güncelle" class="buton saga_cek" />
+        </td>
+  </tr>
+  
+  
+  
+ </table>      
+       <div class="ayar_baslik">Özel Mesaj </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+        <tr>
+    <td width="33%" valign="top">Özel Mesaj Durumu:</td>
+    <td width="67%" valign="top">
+    <label class="yesno_yes">
+      <input type="radio" name="pm_aktif_mi" value="acik" id="pm_aktif_mi_0" {PM_AKTIF_MI_ACIK} />
+      Açýk</label><label class="yesno_no">
+      <input type="radio" name="pm_aktif_mi" value="kapali" id="pm_aktif_mi_1" {PM_AKTIF_MI_KAPALI} />
+      Kapalý</label>
+    <br /> <br />
+
+    <span class="sag_taraf_profil_ic_desc">Forum genelinde özel mesaj aktivitesi.</span>   
+     </td>
+  </tr>
+        <tr>
+    <td valign="top">Gelen Kutusu Limit:</td>
+    <td valign="top">
+    <input name="pm_gelen_kutusu" type="text" class="" id="pm_gelen_kutusu" value="{PM_GELEN_KUTUSU}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Gelen kutusunun limiti</span>   
+     </td>
+  </tr>
+  
+          <tr>
+    <td valign="top">Giden Kutusu Limit:</td>
+    <td valign="top">
+    <input name="pm_giden_kutusu" type="text" class="" id="pm_giden_kutusu" value="{PM_GIDEN_KUTUSU}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Giden kutusunun limiti.</span>   
+     </td>
+  </tr>
+  
+          <tr>
+    <td valign="top">Kaydedilen Kutusu Limit:</td>
+    <td valign="top">
+    <input name="pm_kaydedilen_kutusu" type="text" class="" id="pm_kaydedilen_kutusu" value="{PM_KAYDEDILEN_KUTUSU}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Kaydedilen Kutusunun Limiti.</span>   
+     </td>
+  </tr>
+          <tr>
+    <td valign="top">Özel Mesaj Limiti:</td>
+    <td valign="top">
+    <input name="pm_limiti" type="text" class="" id="pm_limiti" value="{PM_SAYISI_LIMITI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu sýnýr aþýldýðýnda pm gönderemezsiniz.</span>   
+         <br />
+        <input type="submit" name="button" id="button" value="Ayarlarý Güncelle" class="buton saga_cek" /></td>
+  </tr>
+  </table>
+  
+         <div class="ayar_baslik">Konu Limitleri </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+          <tr>
+    <td width="32%" valign="top">Konu Sayfa Limit:</td>
+    <td width="68%" valign="top">
+  <input name="konu_sayfalama_limit" type="text" class="" id="konu_sayfalama_limit" value="{KONU_SAYFALAMA_LIMITI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Konu sayfalarýnýn kaçýncý konudan sonra sayfalamaya baþlayacaðý deðer..</span>   
+     </td>
+  </tr>
+          <tr>
+    <td valign="top">Cevap Sayfa Limit:</td>
+    <td valign="top">
+    <input name="cevap_sayfalama_limit" type="text" class="" id="cevap_sayfalama_limit" value="{CEVAP_SAYFALAMA_LIMITI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Mesaj sayfalarýnýn kaçýncý mesajdan sonra sayfalamaya baþlayacaðý deðer.</span>   
+     </td>
+  </tr>
+  <tr>
+    <td valign="top">Sýcak Konu Limit:</td>
+    <td valign="top">
+    <input name="sicak_konu_limit" type="text" class="" id="sicak_konu_limit" value="{KONU_SICAK_KONU_LIMITI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Konunun Sýcak konu olabilmesi için içermesi gereken cevap veya mesaj miktarý.</span>   
+     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Anket Sayýsý Limit:</td>
+    <td valign="top">
+    <input name="anket_sayisi_limit" type="text" class="" id="anket_sayisi_limit" value="{FORUM_ANKET_SAYISI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Maksimum oluþturulacak ankey sayýsý. Maksimum 20 tanedir</span>   
+     </td>
+  </tr>
+  
+  </table>
+  
+           <div class="ayar_baslik">Kayýt</div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+      <tr>
+    <td width="31%" valign="top">Onay kodu:</td>
+    <td width="69%" valign="top">
+    <input name="onay_kodu" type="text" class="" id="onay_kodu" value="{KAYIT_ONAY_KODU}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Bu sýnýr aþýldýðýnda belirli bir süre giriþ yapýlmasý engellenir.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Kayýt Ýçin Ekstra Spam Sorusu</td>
+    <td valign="top">
+      <label class="yesno_yes">
+        <input type="radio" name="ekstra_spam_sorusu_aktifmi" value="acik" {KAYIT_EKSTRA_SPAM_SORUSU_ACIK} id="ekstra_spam_sorusu_aktifmi_0" />
+        Açýk</label><label class="yesno_no">
+        <input type="radio" name="ekstra_spam_sorusu_aktifmi" value="kapali" {KAYIT_EKSTRA_SPAM_SORUSU_KAPALI} id="ekstra_spam_sorusu_aktifmi_1" />
+        Kapalý</label>
+      <br /><br />
+    <span class="sag_taraf_profil_ic_desc">Ekstra spam sorusu aktif olsun mu?</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Kayýt Sorusu:</td>
+    <td valign="top">
+    <input name="kayit_sorusu" type="text" class="" id="kayit_sorusu" value="{KAYIT_EKSTRA_SPAM_SORUSU}" size="50" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Spam kayýtlarý önlemek adýna sorulan soru.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Kayýt Sorusu Cevabý:</td>
+    <td valign="top">
+    <input name="kayit_cevabi" type="text" class="" id="kayit_cevabi" value="{KAYIT_EKSTRA_SPAM_SORUSU_CVP}" size="50" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Spam engellemek için hemen yukarýda sorulan sorunun cevabý.</span>   
+     </td>
+  </tr>
+  
+  
+      <tr>
+    <td valign="top">reCAPTHA Aktif mi:</td>
+    <td valign="top">
+    
+         <label class="yesno_yes">
+        <input type="radio" name="reCAPTHA_aktifmi" value="acik" {RECAPTHA_ACIK} id="reCAPTHA_aktifmi_0" />
+        Aktif</label><label class="yesno_no">
+        <input type="radio" name="reCAPTHA_aktifmi" value="kapali" {RECAPTHA_KAPALI} id="reCAPTHA_aktifmi_1" />
+        Kapalý</label>
+      <br /> <br />
+    <span class="sag_taraf_profil_ic_desc">reCAPTHA aktif olsun mu?</span> 
+      
+     </td>
+  </tr>  
+  
+  
+      <tr>
+    <td valign="top">reCAPTCHA publickey:</td>
+    <td valign="top">
+    <input name="reCAPTHA_public" type="text" class="" id="reCAPTHA_public" value="{RECAPTHA_PUBLICKEY}" size="50" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">reCAPTHA public keyi.</span>   
+     </td>
+  </tr>
+  
+  
+      <tr>
+    <td valign="top">reCAPTCHA privatekey</td>
+    <td valign="top">
+    <input name="reCAPTHA_private" type="text" class="" id="reCAPTHA_private" value="{RECAPTHA_PRIVATEKEY}" size="50" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">reCAPTHA private keyi.</span>   
+     </td>
+  </tr>  
+  
+    
+      <tr>
+    <td valign="top">En Yeni Üye:</td>
+    <td valign="top">
+    <input name="en_yeni_uye" type="text" class="" id="en_yeni_uye" value="{FORUM_EN_YENI_UYE}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forumdaki en yeni üyenin kullanýcý adý.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">En Yeni Üye ID:</td>
+    <td valign="top">
+    <input name="en_yeni_uye_id" type="text" class="" id="en_yeni_uye_id" value="{FORUM_EN_YENI_UYE_ID}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forumdaki en yeni üyenin ID numarasý.</span>   
+     </td>
+  </tr>
+      <tr>
+    <td valign="top">Toplam Üye Sayýsý:</td>
+    <td valign="top">
+    <input name="toplam_uye_sayisi" type="text" class="" id="toplam_uye_sayisi" value="{FORUM_TOPLAM_UYE_SAYISI}" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forumdaki toplam üye sayýsý.</span>   
+     </td>
+  </tr>
+  </table>
+  
+  
+ <div class="ayar_baslik">Üyelik Sözleþmesi </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">    
+  
+      <tr>
+    <td valign="top" align="center">
+    
+      <textarea name="uyelik_sozlesmesi" cols="45" rows="3" class="" id="uyelik_sozlesmesi">{KAYIT_UYELIK_SOZLESMESI}</textarea>
+      <br />
+      <span class="sag_taraf_profil_ic_desc">Üyelerin kabul etmesi gereken sözleþmedir..</span>     </td>
+    </tr>
+</table>       
+    <br />
+     <div align="center">   <input type="submit" name="button" id="button" value="Ayarlarý Güncelle" class="buton" />
+     </div>
+     <br />
+    </div>
+      <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil --> 
+</form>

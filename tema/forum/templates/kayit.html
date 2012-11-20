@@ -1,0 +1,104 @@
+
+<form action="sistem/yeni_uye_kaydi_ac.php" method="post">
+
+<table class="tablo_border" cellpadding="3" cellspacing="1" align="center">
+  <tr class="gri_ust">
+   <td colspan="2">Kayýt Detaylarý</td>
+  </tr>
+  <tr class="gri_alt">
+   <td colspan="2"><span class="ufak_font"><span style="color:#CC0000; font-weight:bold; font-size:13px">*</span> Yýldýzlý alanlar gereklidir.</span></td>
+  </tr>
+  <tr class="tableRow">
+   <td width="47%">Kullanýcý<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span><br>
+     <span class="ufak_font">Foruma giriþ yapmanýz için size özel nick.</span></td>
+   <td valign="top" width="53%"><input name="kullanici" size="30" maxlength="40" autocomplete="off"  type="text" id="kullanici"></td>
+  </tr>
+   <tr class="tableRow">
+    <td>Þifre<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span></td>
+    <td valign="top"><input name="sifre1"  size="30" maxlength="40" value=""  type="password" id="sifre1"></td>
+   </tr>
+   <tr class="tableRow">
+    <td>Tekrar Þifre<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span></td>
+    <td><input name="sifre2" id="we" size="30" maxlength="40" value="" autocomplete="off"  type="password"></td>
+   </tr>
+   <tr class="tableRow">
+    <td>Email<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span></td>
+    <td valign="top"><input name="mail1" id="ewew" size="50" maxlength="60"  type="text"></td>
+   </tr>
+   <tr class="tableRow">
+    <td>Tekrar  Email<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span></td>
+    <td valign="top"><input name="mail2" id="mail2" size="50" maxlength="60"  type="text"></td>
+   </tr>
+   <!-- IF EKSTRA_SPAM_SORUSU_AKTIF -->
+     <tr class="tableRow">
+    <td>{EKSTRA_SPAM_SORUSU}<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span>
+   </td>
+    <td valign="top"><input name="ekstra_soru_cevabi"  type="text" id="ekstra_soru_cevabi" value="" size="50" maxlength="60"></td>
+   </tr>
+   <!-- ENDIF --> 
+   
+   <tr class="gri_ust">
+    <td colspan="2">Güvenlik kodu (Gerekli)<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span></td>
+   </tr>
+   <tr class="tableRow">
+	<td valign="top" width="47%">Güvenlik Kodu<span style="color:#CC0000; font-weight:bold; font-size:13px">*</span><br>
+		<span class="ufak_font">Resimde görünen   karakterleri forma giriniz. Büyük küçük harf farketmez.</span></td>
+    <td tabindex="8" valign="top" width="53%">
+  <!-- IF RECAPTHA_AKTIF -->
+      <script type="text/javascript">
+	    var RecaptchaOptions = 
+		{
+		  theme : 'white'
+	    };
+	 </script>
+  {CAPTCHA}
+   <!-- ELSE -->
+		<table width="100%" border="0" cellpadding="3" cellspacing="1">
+			<tr>
+				<td><img src="captcha/captcha.php" id="captcha"/>
+                
+    <a href="javascript:;" onclick="
+    document.getElementById('captcha').src='captcha/captcha.php?'+Math.random();"
+   id="change-image"><img src="{TEMA_YOLU}/images/yenile.png" class="img_ortala" alt="Yenile"></a>
+    </td>
+			</tr>
+			<tr>
+				<td><input name="guvenlik_kodu" id="captcha-form" size="10" maxlength="25" autocomplete="off" type="text"> 
+					<span class="ufak_font">Lütfen yukarýdaki  karakterleri forma giriniz</span>
+				</td>
+			</tr>
+		</table> 
+       <!-- ENDIF --> 
+       
+	</td>
+   </tr>
+   <tr class="gri_ust">
+     <td colspan="2" >Kayýt Koþullarý*</td>
+   </tr>
+   <tr class="tableRow">
+     <td colspan="2" align="center">
+		<div style="margin-left:auto; margin-right:auto; width:60%;">
+			<fieldset class="fieldset">
+				<legend class="kucukfont">Forum Kurallarý</legend>
+					<div class="forum_kurallari" style="border:thin inset; padding:6px; height:175px; overflow:auto"> 
+						<div align="left">{SOZLESME}</div>
+					</div>
+			</fieldset>
+		</br>
+			<label for="kural"><input name="sozlesme" type="checkbox" id="kural" value="kabul">
+				<strong>Forum üyelik sözleþmesini okudum ve kabul ediyorum</strong></label>
+			</br>
+       </div>     
+	 </td>
+   </tr>
+   <tr class="tableBottomRow">
+      <td colspan="2" align="center"><input name="Submit" id="Submit" value="Kayýt Ol" tabindex="60" type="submit" class="buton">
+         <input name="Reset" id="Reset" value="Temizle" tabindex="61" type="reset" class="buton">    
+	  </td>
+   </tr>
+  </table>
+
+
+</form>
+
+

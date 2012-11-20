@@ -1,0 +1,338 @@
+<script type="text/javascript">
+// <![CDATA[
+
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+
+// ]]>
+</script>
+
+
+
+<h1>{FORUM_ADI_UST}</h1>
+ <form id="forum" name="forum" method="post" action="fdsfds">
+ 
+  <!-- IF ALT_FORUM_VAR --> 
+
+
+
+
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+	<td width="5%">&nbsp;</td>
+    <td width="50%">Alt Forumlar</td>
+	<td width="10%" align="center">Konular</td>
+	<td width="10%" align="center">Mesajlar</td>
+	<td width="30%">Son mesaj</td>
+ </tr>
+ 
+ <!-- BEGIN altrow -->
+ <tr class="forum_satir1">
+	<td align="center">
+		<img src="{TEMA_YOLU}/images/konu_ikon/{altrow.KONU_RESIM}" alt="Forum" border="0" title="Forum">	
+	</td>
+    <td>
+		<a href="<!-- IF SEO_AKTIFSE -->f{altrow.F_ID}-{altrow.FORUMLAR_SEO}.html<!-- ELSE IF -->forumdisplay.php?f={altrow.F_ID}<!-- ENDIF -->">{altrow.FORUMLAR}</a>
+		<br>
+		{altrow.DESC}
+   	</td>
+	<td align="center">{altrow.TOPLAM_KONU}</td>
+	<td align="center">{altrow.TOPLAM_MESAJ}</td>
+	<td class="ufak_font" nowrap="nowrap">
+    
+		<!-- IF not altrow.FORUM_BOS -->
+			<a href="showthread.php?t={altrow.SON_MESAJ_KONU_ID}" title="{altrow.SON_MESAJ}"><img src="{altrow.SON_MESAJ_IKONU}" alt="Son Mesaj" title="{altrow.SON_MESAJ}" class="img_ortala"  />  {altrow.SON_MESAJ}</a><br>By&nbsp;<a href="profil.php?u={altrow.SON_MESAJ_YAZAR_ID}" class="smLink" style="color:#{altrow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{altrow.SON_MESAJ_YAZAR}</a> <a href="showthread.php?t={altrow.SON_MESAJ_KONU_ID}<!-- IF altrow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={altrow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{altrow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son Mesaja Git" title="Son Mesaja Git" class="img_ortala"></a><br>{altrow.SON_MESAJ_ZAMAN}
+		<!-- ELSE IF -->
+			  -
+		<!-- ENDIF -->
+    </td>
+ </tr>
+<!-- END altrow --> 
+</table>
+<br />
+  <!-- ENDIF  -->    <!-- IFALT_FORUM_VAR'in SONU --> 
+
+
+ 
+  
+
+         <div style="float:left;"> 
+         <!-- IF FORUM_KAPALIMI -->
+         <a href="newthread.php?f={FORUM_ID}"><img src="{TEMA_YOLU}/images/kilitli_konu.gif" alt="Kilitli Konu"></a>
+         <!-- ELSE IF --> 
+         <a href="newthread.php?f={FORUM_ID}"><img src="{TEMA_YOLU}/images/yeni_konu.gif" alt="Yeni Konu Aç"></a>
+         <!-- ENDIF -->
+            </div>
+        
+        
+	<!-- IF S_VAR -->
+    <div align="right" style="margin-right:0px;">{SAYFALA} </div>
+    <!-- ENDIF -->
+
+<br />
+<span class="saga_cek">
+   <!-- IF ABONE_VAR -->
+   <a href="sistem/abonelikler.php?do=abonelik_sil&forumID={FORUM_ID}">Bu foruma aboneliðini sil</a>
+   <!-- ELSE IF --> 
+   <a href="sistem/abonelikler.php?do=abonelik_ekle&forumID={FORUM_ID}">Bu foruma abone ol</a>
+   <!-- ENDIF -->
+</span>
+<br/><br/>
+
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+   <td colspan="2">&nbsp;</td>  
+    <td width="60%"><div style="float:left;"><a href="javascript:;" title="Reverse Sort Order">Konular</a> / <a href="javascript:;" title="Reverse Sort Order">Konuyu Ba&#351;latan</a></div><div style="float:right;"><a href="javascript:;" title="Reverse Sort Order">Rating</a>&nbsp;</div></td>
+
+   <td width="10%" align="center" nowrap="nowrap"><a href="forumdisplay.php?f={FORUM_ID}&sort=cevap&order={ORDER}" title="{ORDER}">Cevaplar <img src="{TEMA_YOLU}/images/{ORDER}.png" alt="{ORDER}" class="img_ortala" /></a></td>
+   <td width="10%" align="center" nowrap="nowrap"><a href="javascript:;" title="Reder">Görüntülenme</a></td>
+   <td width="15%"><a href="javascript:;" title="Reversder">Son Konu</a></td>
+  </tr>
+  
+  <!-- IF DUYURU_VAR -->
+<tr class="gri_alt"><td colspan="6">Forum Duyurularý</td></tr>
+  <!-- ENDIF -->
+ <!-- BEGIN duyururow --> 
+        <!-- IF duyururow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+       
+	 <td width="5%" align="center">
+        <img src="{TEMA_YOLU}/images/konu_ikon/{duyururow.KONU_RESIM}" alt="Topic" width="20" border="0" title="Topic">     </td>
+     <td><img src="{duyururow.KONU_IKONU}" alt="Duyuru ikonu" title="Duyuru ikonu" border="0">  </td>
+   	<td>
+    <!-- IF duyururow.DUYURU -->
+    <span style="color:#CC0000;"><strong>Duyuru: </strong></span>
+    <!-- ENDIF -->
+    <!-- IF duyururow.KONU_ANKET_VAR -->
+  <img src="{TEMA_YOLU}/images/konu_ikon/anket.png" alt="Anket" title="Anket" border="0" class="img_ortala"/> 
+  <!-- ENDIF -->    
+<a href="showthread.php?t={duyururow.KONU_ID}" title="eeeeeeeee">{duyururow.KONU_BASLIK}</a><br>
+		<span class="ufak_font">By <a href="profil.php?u={duyururow.KONU_YAZAR_ID}" class="smLink" style="color:#{duyururow.KONU_YAZAR_RENK}; font-weight:bold;">{duyururow.KONU_YAZAR}</a>, {duyururow.KONU_TARIHI}</span>
+		<span>{duyururow.UFAK_SAYFALAMA}</span>	
+        <span style="float:right;"><img src="{duyururow.KONU_RATING}" alt="{duyururow.KONU_RATING_DEGER}" title="Ortalama {duyururow.KONU_RATING_DEGER} oy " /></span>
+        </td>
+    <td align="center">{duyururow.KONU_CVP_SAYISI}</td>
+    <td align="center">{duyururow.KONU_OKUNMA}</td>
+    <td class="ufak_font" nowrap="nowrap">
+   		By <a href="profil.php?u={duyururow.SON_MESAJ_YAZAR_ID}" class="smLink" rel="nofollow" style="color:#{duyururow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{duyururow.SON_MESAJ_YAZAR}</a><br>
+		{duyururow.SON_MESAJ_ZAMANI}<a href="showthread.php?t={duyururow.KONU_ID}<!-- IF duyururow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={duyururow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{duyururow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son mesajý oku" title="Son mesajý oku" class="img_ortala"></a>  	
+<!-- IF S_ADMIN --> <label>
+      <input name="konuID[]" type="checkbox" id="checkbox2" value="{duyururow.KONU_ID}"  class="img_ortala"/>
+      </label> 
+<!-- ENDIF -->
+        
+        </td> 
+  </tr> 
+ 	<!-- END duyururow -->
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <tr class="gri_alt"><td colspan="6">Forum Konularý</td></tr>
+ 
+  <!-- BEGIN sabitrow --> 
+       <!-- IF sabitrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+
+<td align="center">
+         <img src="{TEMA_YOLU}/images/konu_ikon/{sabitrow.KONU_RESIM}" alt="Topic" width="20" border="0" title="Topic">     </td>
+     <td><img src="{sabitrow.KONU_IKONU}" alt="Sabit Konu ikonu" title="Sabit Konu ikonu" border="0"></td>
+   	<td>
+    <!-- IF sabitrow.SABIT -->
+       <span style="color:#CC0000;"><strong>Sabit: </strong></span>
+    <!-- ENDIF -->
+    <!-- IF sabitrow.KONU_ANKET_VAR -->
+  <img src="{TEMA_YOLU}/images/konu_ikon/anket.png" alt="Anket" title="Anket" border="0" class="img_ortala"/> 
+  <!-- ENDIF -->
+    <a href="<!-- IF SEO_AKTIFSE -->t{sabitrow.KONU_ID}-{sabitrow.KONU_BASLIK_SEO}.html<!-- ELSE IF -->showthread.php?t={sabitrow.KONU_ID}<!-- ENDIF -->" title="eeeeeeeee">{sabitrow.KONU_BASLIK}</a>
+    <br>
+	<span class="ufak_font">By <a href="profil.php?u={sabitrow.KONU_YAZAR_ID}" class="smLink" style="color:#{sabitrow.KONU_YAZAR_RENK}; font-weight:bold;">{sabitrow.KONU_YAZAR}</a>, {sabitrow.KONU_TARIHI}</span>
+		<span>{sabitrow.UFAK_SAYFALAMA}</span>
+        <!-- IF sabitrow.SABIT -->
+        <span style=" float:right"> 
+           <img src="{TEMA_YOLU}/images/sabit.png" alt="sabit" title="sabit" border="0">        </span><span style="float:right;"><img src="{sabitrow.KONU_RATING}" alt="{sabitrow.KONU_RATING_DEGER}" title="Ortalama {sabitrow.KONU_RATING_DEGER} oy " /></span>
+        <!-- ENDIF -->	</td>
+    <td align="center">{sabitrow.KONU_CVP_SAYISI}</td>
+    <td align="center">{sabitrow.KONU_OKUNMA}</td>
+    <td class="ufak_font" nowrap="nowrap">
+   		By <a href="profil.php?u={sabitrow.SON_MESAJ_YAZAR_ID}" class="smLink" rel="nofollow" style="color:#{sabitrow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{sabitrow.SON_MESAJ_YAZAR}</a><br>
+		{sabitrow.SON_MESAJ_ZAMANI}<a href="showthread.php?t={sabitrow.KONU_ID}<!-- IF sabitrow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={sabitrow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{sabitrow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son mesajý oku" title="Son mesajý oku" class="img_ortala"></a>  	
+  <!-- IF S_ADMIN -->      
+   <label>
+      <input name="konuID[]" type="checkbox" id="checkbox2" value="{sabitrow.KONU_ID}"  class="img_ortala"/>
+      </label>    
+   <!-- ENDIF --> 
+          </td> 
+    </tr> 
+ 	<!-- END sabitrow --> 
+ 
+ 
+<!-- IF KONU_YOK -->
+   <tr class="evenTableRow">
+     <td colspan="6" align="center">  Konu Yok </td>
+   </tr>  
+<!-- ELSE IF -->
+    <!-- BEGIN konurow --> 
+   
+       <!-- IF konurow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+       
+       	 <td align="center">
+         <img src="{TEMA_YOLU}/images/konu_ikon/{konurow.KONU_RESIM}" alt="Topic" width="20" border="0" title="Topic">     </td>
+     <td><img src="{konurow.KONU_IKONU}" alt="Konu ikonu" title="Konu ikonu" border="0"></td>
+   	<td>
+  <!-- IF konurow.KONU_ANKET_VAR -->
+  <img src="{TEMA_YOLU}/images/konu_ikon/anket.png" alt="Anket" title="Anket" border="0" class="img_ortala"/> Anket:
+  <!-- ENDIF -->
+  
+		<a href="<!-- IF SEO_AKTIFSE -->t{konurow.KONU_ID}-{konurow.KONU_BASLIK_SEO}.html<!-- ELSE IF -->showthread.php?t={konurow.KONU_ID}<!-- ENDIF -->" title="eeeeeeeee">{konurow.KONU_BASLIK}</a><br>
+		<span class="ufak_font">By <a href="profil.php?u={konurow.KONU_YAZAR_ID}" class="smLink" style="color:#{konurow.KONU_YAZAR_RENK}; font-weight:bold;">{konurow.KONU_YAZAR}</a>, {konurow.KONU_TARIHI}</span>
+		<span>{konurow.UFAK_SAYFALAMA}</span>	<span style="float:right;"><img src="{konurow.KONU_RATING}" alt="{konurow.KONU_RATING_DEGER}" title="Ortalama {konurow.KONU_RATING_DEGER} oy " /></span></td>
+    <td align="center">{konurow.KONU_CVP_SAYISI}</td>
+    <td align="center">{konurow.KONU_OKUNMA}</td>
+    <td class="ufak_font" nowrap="nowrap">
+   		By <a href="profil.php?u={konurow.SON_MESAJ_YAZAR_ID}" class="smLink" rel="nofollow" style="color:#{konurow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{konurow.SON_MESAJ_YAZAR}</a><br>
+		{konurow.SON_MESAJ_ZAMANI}<a href="showthread.php?t={konurow.KONU_ID}<!-- IF konurow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={konurow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{konurow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son mesajý oku" title="Son mesajý oku" class="img_ortala"></a>  	
+   <!-- IF S_ADMIN -->     
+<label>
+      <input name="konuID[]" type="checkbox" id="checkbox2" value="{konurow.KONU_ID}"  class="img_ortala"/>
+      </label>
+  <!-- ENDIF -->
+        </td>
+  </tr>
+	<!-- END konurow --> 
+   
+<!-- ENDIF -->
+</table>
+<br />
+<div style="float:left; width:25px; margin-left:0px;">
+         <!-- IF FORUM_KAPALIMI -->
+         <a href="newthread.php?f={FORUM_ID}"><img src="{TEMA_YOLU}/images/kilitli_konu.gif" alt="Kilitli Konu"></a>
+         <!-- ELSE IF --> 
+         <a href="newthread.php?f={FORUM_ID}"><img src="{TEMA_YOLU}/images/yeni_konu.gif" alt="Yeni Konu Aç"></a>
+         <!-- ENDIF -->
+
+</div>
+<!-- IF S_VAR -->
+<div align="right" style="margin-right:0px; width:600px; float:right;">{SAYFALA}</div>
+<!-- ENDIF -->
+
+<div class="temizle"></div>
+
+ <!-- IF S_ADMIN --> 
+<span style="float:right;"><a href="#" onclick="marklist('forum', 'konuID', true); return false;">Tümünü iþaretle</a> :: <a href="#" onclick="marklist('forum', 'konuID', false); return false;">Tüm iþaretleri kaldýr</a></span>
+
+<br /><br />
+<!-- ENDIF -->
+
+<select name="forum_listesi" ONCHANGE="location = this.options[this.selectedIndex].value;" style="float:right;">
+           <option value="0">Forum Seçiniz</option>
+           <!-- BEGIN kategorirow -->
+         {kategorirow.OPTION}
+                    <!-- BEGIN forumrow -->
+                    {kategorirow.forumrow.OPTION}
+                                      <!-- BEGIN altforumrow -->
+                                      {kategorirow.forumrow.altforumrow.OPTION}
+                                      <!-- END altforumrow --> 
+                    <!-- END forumrow --> 
+         <!-- END kategorirow -->
+</select>
+
+
+
+<br /><br /><br />
+
+
+
+<div class="headerbar">Kimler Bu Forumda </div>
+    <div class="sag_taraf_profil_ic" style="padding:10px;">  
+   <!-- BEGIN kulrow -->
+     {kulrow.KUL_LINKI} 
+   <!-- END kulrow -->   Misafir:<strong>{MISAFIRSAY} </strong>
+   </div>
+<br />
+
+
+<!-- ikon baþladý -->
+<div class="ikon_aciklama">
+<div class="ikon_aciklama_ust">Ýkon Açýklamalarý</div>
+<div class="ikon_aciklama_ust_govde">
+     <ul>
+
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/thread_new.png" alt="Yeni Forum" title="Yeni Forum" width="18" class="img_ortala"/> Yeni Mesaj Var </li>
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/thread.png" alt="Eski Forum" title="Eski Forum"  width="18" class="img_ortala"/> Yeni Mesaj Yok </li>       
+       
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/thread_hot_new.png" alt="Yeni Forum Popüler"  title="Yeni Forum Popüler" width="18" class="img_ortala"/> Yeni mesaj yazýlmýþ Popüler Konu </li>
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/thread_hot.png" alt="Eski Forum" title="Eski Forum" width="18" class="img_ortala"/>     Yeni mesaj yazýlmamýþ Popüler Konu </li>  
+       
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/kilitlenmis.png" alt="Kilitli Forum"  title="Kilitli Forum" class="img_ortala"/> Kilitlenmiþ Konu </li>
+       <li><img src="{TEMA_YOLU}/images/konu_ikon/size_ait_forum.png" alt="Sizin Açmýþ Olduðunuz Forum" title="Sizin Açmýþ Olduðunuz Forum" class="img_ortala"/> Sizin Açmýþ Olduðunuz Konu </li>         
+    </ul> 
+</div>
+</div>
+<!-- ikon bitti -->
+
+<!-- yetkiler baþladý -->
+<div class="yetki_aciklama">
+<div class="yetki_aciklama_ust">Yetkileriniz</div>
+<div class="yetki_aciklama_ust_govde">
+    <ul>
+       <li>Yeni konu <strong>açabilirsiniz</strong></li>
+       <li>Yeni cevap <strong>yazabilirsiniz</strong> </li>
+      <li>Yeni anket <strong>açabilirsiniz</strong> </li> 
+    </ul> 
+</div>
+</div>
+<!-- yetkiler bitti -->
+
+<div class="temizle"></div>
+<br />
+<br />
+<br />
+</form>

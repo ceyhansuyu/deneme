@@ -1,0 +1,160 @@
+
+<script type="text/javascript">
+// <![CDATA[
+
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+
+// ]]>
+</script>
+
+
+<form action="sistem/ozel_mesaj_yap.php?do=tasi_veya_sil&klasor=gelen" method="post" name="pm_list" id="profil">
+
+<div class="sag_taraf_profil">
+ <span style="float:right; margin-bottom:10px;">{SAYFALAMA}</span>
+<table width="100%" align="center" cellpadding="3" cellspacing="1"  class="tablo_border">
+  <tr class="gri_ust">
+    <td width="20"><label></label></td>
+    <td width="20">&nbsp;</td>
+    <td width="20">&nbsp;</td>
+    <td width="">Mesaj</td>
+    <td width="80">Yazar</td>
+    <td width="120">Tarih</td>
+  </tr>
+   <!-- IF not PM_VAR --> 
+   <tr class="ayar_baslik">
+   <td align="center" colspan="6"> Özel Mesajýnýz Bulunmuyor.
+   </td>
+   </tr>
+   
+   <!-- ENDIF -->
+  
+ <!-- BEGIN pmrow --> 
+ 
+        <!-- IF pmrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+      <td><label>
+      <input name="pm_id[]" type="checkbox" id="checkbox2" value="{pmrow.PM_ID}" />
+      </label></td>
+    <td><img src="{TEMA_YOLU}/images/konu_ikon/{pmrow.MESAJ_OKUNDU_IMG}" alt="" title="" /></td>
+    <td><!-- IF pmrow.MESAJ_OKUNDU_IMG_VAR -->{pmrow.MESAJ_IKON}<!-- ENDIF --></td>
+    <td><a href="ozel_mesaj.php?do=gelen&pm_id={pmrow.PM_ID}">{pmrow.MESAJ_BASLIK}</a></td>
+    <td><a href="profil.php?u={pmrow.GONDEREN_ID}">{pmrow.GONDEREN}</a></td>
+    <td>{pmrow.GONDERME_ZAMANI}</td>
+  </tr>
+  <!-- END pmrow -->
+</table>
+<br />
+<span style="float:right;">{SAYFALAMA}</span>
+<br /><br />
+<br />
+<div class="ufak_font">
+<span style="float:left;"><a href="#" onclick="marklist('pm_list', 'pm_id', true); return false;">Tümünü iþaretle</a> :: <a href="#" onclick="marklist('pm_list', 'pm_id', false); return false;">Tüm iþaretleri kaldýr</a></span>
+
+<span style="float:right"><select name="islem" id="islem">
+  <option value="sil" selected="selected">Sil</option>
+            <!-- BEGIN menu_klasorrow --> 
+  <option value="{menu_klasorrow.KLASOR_ID}">{menu_klasorrow.KLASOR_ADI}'e Taþý</option>      
+             <!-- END menu_klasorrow -->
+
+</select>
+
+<label><input type="submit" name="button" id="button" value="Gönder" class="buton"/></label>
+  &nbsp;
+  <label><input type="reset" name="button2" id="button2" value="Temizle" class="buton"/></label></span>
+</div>
+<!-- IF PM_OKU_GELEN  -->
+<br /><br /><br /><br /><br />
+
+<table width="100%" align="center" cellpadding="3" cellspacing="1"  class="tablo_border">
+  <tr class="gri_ust">
+    <td width="152"><label></label>
+      Gönderen</td>
+    <td>Mesaj</td>
+    </tr>
+
+       <tr class="row1">
+         <td valign="top">
+      <div align="center">  <a href="profil.php?u={GONDEREN_ID}">{GONDEREN}</a></div>
+      <br />
+      <div align="center"><img src="{GONDEREN_AVATAR}" alt="{GONDEREN}" title="{GONDEREN}"/></div>
+     <br />
+	   <div class="profil_alani"><strong>Nick:</strong> {GONDEREN}</div>
+	 
+	   <div class="profil_alani"><strong>Grup:</strong> {GONDEREN_GRUP}</div>	   
+       <div class="profil_alani"><strong>Durum:</strong> {GONDEREN_ONLINE}</div>         </td>
+         
+         <td  valign="top"><!-- IF MESAJ_OKUNDU_IMG_VAR -->{MESAJ_IKON}<!-- ENDIF --> <span class="ufak_font"> {GONDERME_ZAMANI} &nbsp; Baþlýk: <strong>{MESAJ_BASLIK}</strong></span>
+         <div class="cizgi"></div>
+         {MESAJ_GOVDE}
+         </td>
+       </tr>
+       <tr>
+       <td> 
+       
+       <ul class="ufak_buton">
+       <li><a href="ihbar.php"><span><img src="{TEMA_YOLU}/images/uyari.png" title="Mesajý Bildir" alt="Mesaji Bildir" style="vertical-align: text-bottom;"> Mesajý Bildir </span></a></li>
+	</ul>
+    
+     </td>
+       <td>
+       
+        
+
+         
+	<div style="float:right; width:100%; margin-right:-25px;" class="ufak_font">
+      <ul class="ufak_buton">
+     
+        <li><a href="ozel_mesaj.php?do=yeni_ozel_mesaj&u={GONDEREN_ID}" title="Özel Mesaj"><span><img src="{TEMA_YOLU}/images/pm.png" title="Özel Mesaj" alt="Özel Mesaj" style="vertical-align: text-bottom;"> Özel Mesaj</span></a></li>
+        
+                <li><a href="ozel_mesaj.php?do=alinti&pmID={PM_ID}"><span><img src="{TEMA_YOLU}/images/quote.png" title="Alýntý" alt="Alýntý" style="vertical-align: text-bottom;"> Alýntýyla Cevapla</span></a></li>
+                
+                     <li><a href="sistem/ozel_mesaj_yap.php?do=pmSIL&klasor=gelen&pmID={PM_ID}"><span><img src="{TEMA_YOLU}/images/ufak_sil.png" title="Sil" alt="Sil" style="vertical-align: text-bottom;"> Sil</span></a></li>
+                
+        
+      <li><a href="#top"><span><img src="{TEMA_YOLU}/images/yukari.png" title="Yukarý" alt="Yukarý" style="vertical-align: text-bottom;"></span></a></li>
+       
+	</ul>	
+                 
+           </div>	
+       
+       </td>
+       </tr>
+</table>
+<!-- ENDIF -->
+
+</div>
+</form>
+

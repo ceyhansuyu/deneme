@@ -1,0 +1,61 @@
+
+
+<table width="100%" class="profil_topla" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>	
+    
+    <!-- INCLUDE ozel_mesaj_menu.html -->
+    
+    <!-- IF DO == "yeni_ozel_mesaj" -->
+    <!-- INCLUDE ozel_mesaj_yeni.html -->
+    <!-- ENDIF -->
+    
+    <!-- IF DO == "gelen" -->
+    <!-- INCLUDE ozel_mesaj_gelen_kutusu.html -->
+    <!-- ENDIF -->
+
+    <!-- IF DO == "giden" -->
+    <!-- INCLUDE ozel_mesaj_giden_kutusu.html -->
+    <!-- ENDIF -->
+
+
+    <!-- IF DO == "yeni_klasor" -->
+    <!-- INCLUDE ozel_mesaj_yeni_klasor.html -->
+    <!-- ENDIF -->
+    
+    <!-- IF DO == "alinti" -->
+    <!-- INCLUDE ozel_mesaj_alinti.html -->
+    <!-- ENDIF -->
+    
+    <!-- IF DO == "klasor" -->
+    <!-- INCLUDE ozel_mesaj_klasor.html -->
+    <!-- ENDIF -->    
+    <!-- IF DO == "" -->
+  
+  
+    <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Klasör Kontrolleri
+       </div>
+      <div class="sag_taraf_profil_ic">
+        <input name="do" type="text" value="{DO}" style="display:none;">
+
+
+
+         <div class="ayar_baslik">
+         (Limitiniz Toplam {AYAR_PM_LIMIT} mesajdýr.)</div>
+         
+<div class="ozel_mesaj_yuzde"><div class="ozel_mesaj_yuzde_ic" style="width:{YUZDE_ORAN_PM}%;"></div></div>      
+ <div style="margin:10px;"> Gelen Kutusu: <strong>{TOPLAM_GELEN_SAY}</strong> ; Giden Kutusu: <strong>{TOPLAM_GIDEN_SAY}</strong> ; Diðer Klasörlerinizde:<strong> {TOPLAM_KLASORDE_SAY}</strong>  Olmak üzere Toplam <strong>{TOPLAM_SAY}</strong> mesajýnýz vardýr.</div>
+    </div>
+      <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil --> 
+  
+  
+    <!-- ENDIF -->    
+   
+    
+    </td>
+  </tr>
+</table>
+

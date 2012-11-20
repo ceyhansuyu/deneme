@@ -1,0 +1,86 @@
+<form action="sistem/yeni_anket_ac.php" method="post" name="form" id="form">
+
+<input name="konu_id" type="text" id="konu_id" value="{HANGI_TOPIC}" style="display:none;"/>
+<div class="headerbar">Yeni Anket</div>
+<table width="100%" align="center" cellpadding="2" cellspacing="0" class="tablo_border">
+
+  <tr class="tableRow">
+    <td colspan="2" align="left" class="ayar_baslik">Anket Ayarlarý</td>
+    </tr>
+  <tr class="tableRow">
+    <td align="left">Anket Seçenek Sayýsý<br />    </td>
+    <td align="left"><input name="anket_secenek_sayisi" type="text" id="anket_secenek_sayisi" value="{SECENEK_SAYISI}" size="10" maxlength="10" />
+      <label>
+        <input type="submit" name="action" id="button" class="buton" value="Güncelle" />
+      </label>
+      <br />
+    <span class="ufak_font">Maksimum {MAKS_ANKET_SAYISI} </span></td>
+  </tr>
+    <tr class="tableRow">
+    <td colspan="2" align="left" class="ayar_baslik">Anket</td>
+    </tr>
+  <tr class="tableRow">
+    <td width="30%" align="left">Anket Sorusu</td>
+    <td width="70%" align="left"><input name="anket_sorusu" type="text" id="anket_sorusu" size="40" maxlength="100" /></td>
+  </tr>
+  <tr class="tableRow">
+    <td colspan="2" align="left"><div class="cizgi"></div></td>
+    </tr>
+  <tr class="tableRow">
+    <td align="left">&nbsp;</td>
+    <td align="left">  
+    <!-- BEGIN anketrow --> 
+    <span style="float:left"><label for="secenek[{anketrow.OPTIONS_ID}]">Seçenek: {anketrow.OPTIONS_ID}</label></span>
+    <br />   
+    <input type="text" size="40" name="secenek[{anketrow.OPTIONS_ID}]" id="secenek[{anketrow.OPTIONS_ID}]" maxlength="100" />
+    <br />    
+    <br />
+    <!-- END anketrow -->    </td>
+  </tr>
+  <tr class="tableRow">
+   <td colspan="2" align="left"><div class="cizgi"></div></td>    
+  </tr>
+  <tr class="tableRow">
+    <td align="left"><label for="datepicker">Anket Süresi</label></td>
+    <td align="left"><input name="anket_suresi" type="text" id="datepicker" size="10" maxlength="100" /><br /><span class="ufak_font">Anket ne zaman sona ersin</span></td>
+  </tr>
+  <tr class="tableRow">
+    <td colspan="2" align="left" class="ayar_baslik">Ek Ayarlar</td>
+    </tr>
+  <tr class="tableRow">
+    <td align="left"><span id="result_box" lang="tr" xml:lang="tr">Çeþitli Seçenekler:</span></td>
+    <td align="left">
+    <label>
+      <input name="oy_degistir" type="checkbox" id="oy_degistir" value="oy_degistir" /> 
+      Oy deðiþtirilebilsin</label><br />
+    <span class="ufak_font">Seçtiðiniz seçeneði sonradan deðiþtirebilirsiniz</span>
+    <br />  <br />
+    <label>
+      <input name="kim_hansine_public" type="checkbox" id="kim_hansine_public" value="kim_hansine_public" /> 
+      Kim hangisine
+    </label>
+    <br />
+    <span class="ufak_font">Hangi kullanýcýnýn hangi seçenegi seçtiðini gösterir</span>
+    <br /><br />
+    
+    </td>
+  </tr>
+  <tr class="tableRow">
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr class="tableRow">
+    <td align="left">&nbsp;</td>
+    <td align="left">     </td>
+ </tr>
+</table>
+
+ 
+
+
+
+<p align="center">  <label>
+  <input type="submit" name="action" id="action" class="buton" value="Anket Aç" />
+  </label></p>
+</form>
+

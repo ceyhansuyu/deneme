@@ -1,0 +1,80 @@
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+	<td width="5%">&nbsp;</td>
+    <td width="50%">Forum</td>
+	<td width="10%" align="center">Konular</td>
+	<td width="10%" align="center">Mesajlar</td>
+	<td width="30%">Son mesaj</td>
+ </tr>
+ <tr class="gri_alt">
+	<td colspan="5">
+		<a href="#"><strong>{KATEGORI}</strong></a>	</td>
+ </tr>
+ <!-- BEGIN forumrow -->
+ <!-- IF not forumrow.LINK_MI  -->
+         <!-- IF forumrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+	<td align="center">
+		<img src="{TEMA_YOLU}/images/konu_ikon/{forumrow.FORUM_RESIM}" alt="Forum" border="0" title="Forum">
+	</td>
+	<td>
+		<a href="<!-- IF SEO_AKTIFSE -->f{forumrow.F_ID}-{forumrow.FORUMLAR_SEO}.html<!-- ELSE IF -->forumdisplay.php?f={forumrow.F_ID}<!-- ENDIF -->">{forumrow.FORUMLAR}</a>
+		<br>
+		{forumrow.DESC}
+      <!-- IF forumrow.ALT_FORUM_VAR-->
+      <br />
+       <span class="ufak_font"><strong>Alt forumlar:</strong>
+      <!-- BEGIN altrow -->
+        <img src="{TEMA_YOLU}/images/konu_ikon/{forumrow.altrow.FORUM_RESIM}" alt="Alt Forum" border="0" title="Alt Forum" class="img_ortala"> <a href="<!-- IF SEO_AKTIFSE -->f{forumrow.altrow.ALT_F_ID}-{forumrow.altrow.ALT_FORUM_ADI_SEO}.html<!-- ELSE IF -->forumdisplay.php?f={forumrow.altrow.ALT_F_ID}<!-- ENDIF -->" class="smLink">{forumrow.altrow.ALT_FORUM_ADI}</a> &nbsp; 
+        
+      <!-- END altrow -->
+       </span>
+        <!-- ENDIF -->
+	</td>
+	<td align="center">{forumrow.TOPLAM_KONU}</td>
+	<td align="center">{forumrow.TOPLAM_MESAJ}</td>
+	<td class="ufak_font" nowrap="nowrap">
+    
+    <!-- IF not forumrow.FORUM_BOS -->
+    <a href="showthread.php?t={forumrow.SON_MESAJ_KONU_ID}" title="{forumrow.SON_MESAJ}">{forumrow.SON_MESAJ}</a><br>By&nbsp;<a href="profil.php?u={forumrow.SON_MESAJ_YAZAR_ID}" class="smLink" style="color:#{forumrow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{forumrow.SON_MESAJ_YAZAR}</a> <a href="showthread.php?t={forumrow.SON_MESAJ_KONU_ID}<!-- IF forumrow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={forumrow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{forumrow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="View Last Post" title="View Last Post" class="img_ortala"></a><br>{forumrow.SON_MESAJ_ZAMAN}
+    <!-- ELSE IF -->
+       -
+    <!-- ENDIF -->
+    </td>
+ </tr>
+ 
+ 
+ <!-- ENDIF --><!-- ýf not link minin sonu-->
+ 
+ 
+<!-- IF forumrow.LINK_MI  -->
+ 
+   <!-- IF forumrow.S_ROW_COUNT is even -->
+    <tr class="forum_satir1 row1">
+       <!-- ELSE -->	
+       <tr class="forum_satir1 row2">
+       <!-- ENDIF -->
+	<td align="center">
+		<img src="{TEMA_YOLU}/images/konu_ikon/{forumrow.FORUM_RESIM}" alt="Forum" border="0" title="Forum">
+	</td>
+	<td>
+		<a href="forumdisplay.php?f={forumrow.LINK_ID}">{forumrow.LINK_ADI}</a>
+		<br>
+		{forumrow.LINK_ACIKLAMA}
+   	</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">Sayaç: {forumrow.LINK_SAYAC}</td>
+	<td class="ufak_font" nowrap="nowrap">   </td>
+ </tr>
+<!-- ENDIF --> <!--link minin sonu-->
+ 
+ 
+ 
+<!-- END forumrow --> 
+</table>
+<br>
+
+

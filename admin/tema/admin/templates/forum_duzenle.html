@@ -1,0 +1,170 @@
+ 
+  
+  
+ 
+<div class="sag_taraf_profil">
+       <div class="headerbar">Düzenle</div>
+      <div class="sag_taraf_profil_ic">
+
+<div class="ayar_baslik"><a name="kat_duzenle" id="kat_duzenle"></a>Kategori Düzenle </div>
+ <form id="gruplar" name="gruplar" method="post" action="sistem/forum_ekle.php?do=kategori_ekle">  
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+          <tr>
+    <td width="32%" valign="top">Kategori Adý:</td>
+    <td width="68%" valign="top">
+  <input name="kat_title" type="text" class="" id="kat_title" value="{KAT_ADI}" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Kategorini hangi isimle görüneceði.</span>     </td>
+  </tr>
+          <tr>
+    <td valign="top">Kategori Tarifi</td>
+    <td valign="top">
+    <input name="kat_desc" type="text" class="" id="kat_desc" value="{KAT_TARIFI}" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Kategorinin tanýtýmý.</span>     </td>
+  </tr>
+  </table>
+  <br />
+
+  <div align="center">   
+    <input type="submit" name="button" id="button" value="Kategoriyi Güncelle" class="buton" />
+  </div>
+</form>
+     <br />
+     
+  
+  
+  
+  <div class="ayar_baslik"><a name="forum_duzenle" id="forum_duzenle"></a>Forum Düzenle </div>
+ <form id="gruplar" name="gruplar" method="post" action="sistem/forum_ekle.php?do=forum_ekle">  
+  
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+          <tr>
+    <td width="32%" valign="top">Üst Forum:</td>
+    <td width="68%" valign="top">
+
+  <select name="kategori_id" id="kategori_id">
+  
+  
+  
+   <!-- BEGIN catrow -->
+         <option value="{catrow.KAT_ID}" {catrow.SELECTED}>{catrow.KAT_ADI}</option>
+                    <!-- BEGIN forumrow -->
+          <option value="{catrow.KAT_ID}ve{catrow.forumrow.FORUM_ID}" {catrow.forumrow.SELECTED}>--- {catrow.forumrow.FORUM_ADI}</option>
+    
+                    <!-- END forumrow --> 
+         <!-- END catrow -->
+  </select>
+ 
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Eklenecek forumun kategorisi.</span>     </td>
+  </tr>
+  
+  <tr>
+    <td valign="top">Forum Adý</td>
+    <td valign="top">
+    <input name="forum_adi" type="text" class="" id="kat_desc" value="{FORUM_ADI}" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum adý.</span>     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Forum Tarifi</td>
+    <td valign="top">
+    <input name="forum_desc" type="text" class="" id="kat_desc" value="{FORUM_TARIFI}" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum tanýtýmý.</span>     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Forum Resmi</td>
+    <td valign="top">
+    <input name="forum_resmi" type="text" class="" id="forum_resmi" value="{FORUM_RESMI}" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum Resmi.</span>     </td>
+  </tr>
+  </table>
+  <br />
+
+  <div align="center">   
+    <input type="submit" name="button" id="button" value="Forumu Oluþtur" class="buton" />
+  </div>
+</form>
+     <br />
+        
+     
+     
+     
+     
+     <div class="ayar_baslik"><a name="link_duzenle" id="forum_duzenle2"></a>Forum Eðer Link Olacaksa </div>
+ <form id="gruplar" name="gruplar" method="post" action="sistem/forum_ekle.php?do=forum_ekle_link">  
+  
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+          <tr>
+    <td width="32%" valign="top">Kategori Adý:</td>
+    <td width="68%" valign="top">
+
+  <select name="kat_id" id="select">
+  <!-- BEGIN catrow -->
+  <option value="{catrow.KAT_ID}">{catrow.KAT_ADI}</option>
+  <!-- END catrow -->
+  </select>
+ 
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Eklenecek forumun kategorisi.</span>     </td>
+  </tr>
+  
+  <tr>
+    <td valign="top">Link Adý</td>
+    <td valign="top">
+    <input name="forum_adi_link" type="text" class="" id="kat_desc" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum adý.</span>     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Link Tarifi</td>
+    <td valign="top">
+    <input name="forum_desc_link" type="text" class="" id="kat_desc" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum tanýtýmý.</span>     </td>
+  </tr>
+      <tr>
+    <td valign="top">Link Adresi</td>
+    <td valign="top">
+    <input name="forum_link_url" type="text" class="" id="forum_link_url" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Link adresi.</span>     </td>
+  </tr>
+  
+  
+    <tr>
+    <td valign="top">Forum Resmi</td>
+    <td valign="top">
+    <input name="forum_resmi_link" type="text" class="" id="forum_resmi_link" size="60" maxlength="255" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Forum resmi.</span>     </td>
+  </tr>
+  </table>
+  <br />
+
+  <div align="center">   
+    <input type="submit" name="button" id="button" value="Forum Link Oluþtur" class="buton" />
+  </div>
+</form>
+     <br />
+        
+      
+     
+     
+     
+     
+     
+     
+     
+    </div>
+<!-- sag_taraf_profil_ic --> 
+    </div><!-- sag_taraf_profil --> 

@@ -1,0 +1,69 @@
+
+<h1>Yeni Konular</h1>
+<br />
+
+ <br />
+  <span><a href="online_kullanicilar.php?do=gizli">Gizli Kullanýcýlar ({GIZLI})</a></span> 
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <span><a href="online_kullanicilar.php?do=misafir">Misafirler ({MISAFIR})</a></span>  
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <span><a href="online_kullanicilar.php">Toplam {TOPLAM} Kiþi Online</a></span>  
+
+<span style="float:right; margin-bottom:10px;">{SAYFALAMA}</span>
+<br /><br />
+      <div class="headerbar">
+        Kimler Çevrimiçi
+</div>
+
+       
+<table width="100%" align="center" cellpadding="3" cellspacing="1" class="tablo_border">
+ <tr class="ayar_baslik">
+   <td>&nbsp;</td>  
+    <td width="59%">Kullanýcý Adý</td>
+
+   <td width="15%" align="center" nowrap="nowrap">
+     Son Aktivite   </td>
+   <td align="center" nowrap="nowrap">
+   Forumdaki Yeri   </td>
+  </tr>
+  
+<!-- IF ONLINE_YOK -->
+   <tr class="evenTableRow">
+     <td colspan="4" align="center">  
+     <!-- IF DO == "gizli" -->
+     Gizli Kullanýcý Yok
+     <!-- ENDIF -->
+     
+     <!-- IF DO == "misafir" -->
+     Online  Misafir Yok
+     <!-- ENDIF --> 
+         
+     <!-- IF DO == "" -->
+     Online  Kullanýcý Yok
+     <!-- ENDIF -->    
+     
+       </td>
+   </tr>  
+<!-- ELSE IF -->
+    <!-- BEGIN onlinerow --> 
+       <!-- IF onlinerow.S_ROW_COUNT is even -->
+       <tr class="row2">
+       <!-- ENDIF -->
+
+	 <td align="center">&nbsp;</td>
+     <td><a href="profil.php?u={onlinerow.KULLANICI_ID}" style="color:#{onlinerow.KULLANICI_GROUP_COLOR}; font-weight:bold;">
+     {onlinerow.KULLANICI_ADI}
+     </a></td>
+    <td align="center">{onlinerow.KULLANICI_AKTIVITE} </td>
+    <td align="center"><a href="{onlinerow.KULLANICI_SONSAYFA_URL}">
+    {onlinerow.KULLANICI_SONSAYFA_BASLIK} 
+    </a></td>
+  </tr>
+	<!-- END onlinerow --> 
+   
+<!-- ENDIF -->
+</table>
+<br />
+
+<span style="float:right;">{SAYFALAMA}</span>
+

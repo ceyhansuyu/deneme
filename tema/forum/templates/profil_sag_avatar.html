@@ -1,0 +1,53 @@
+<form action="sistem/profil_duzenle.php" method="post" name="profil" id="profil">
+
+  <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Avatar Seçiniz;
+       </div>
+       <div class="sag_taraf_profil_ic">
+   
+   <input name="do" type="text" value="{DO}" style="display:none;">
+ <div class="ayar_baslik">Avatar Önizleme</div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+   <td valign="top"><img src="{AVATAR}"  alt="{AVATAR}" /></td>
+   </tr>
+</table>
+<div class="ayar_baslik">Uzaktan Avatar Seç</div>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+   <td width="39%" valign="top">
+  <label for="avatar_url"> Avatar Url   
+   (Daha sonra aktif edilecektir)<br>
+    <span class="ufak_font">Ýstediðiniz bir yerden avatar resmi ekleyebilirsiniz.  <strong>http://</strong> þeklinde ekleyiniz</span>   </label> </td>
+   <td width="61%"  valign="top"><input name="avatar_url" type="text" class="profil_input" id="avatar_url" maxlength="250" disabled="disabled" /></td>
+  </tr>
+</table>       
+<div class="ayar_baslik">Avatar Seç</div>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+  <!-- BEGIN avatarlar -->
+   <td  valign="top" align="center"><label for="{avatarlar.IMG_SRC}"><img src="{avatarlar.IMG_SRC}" alt="{avatarlar.FILE}" /></label><br /><input name="avatar_grup" type="radio" value="{avatarlar.IMG_SRC}" id="{avatarlar.IMG_SRC}"/>
+   </td>
+   {avatarlar.TR}
+   <!-- END avatarlar -->
+  </tr>
+</table> 
+
+
+   
+    </div>
+       <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil --> 
+<div class="temizle"></div>
+<div align="center">
+  <label>
+  <input type="submit" name="button" id="button" value="G&ouml;nder" class="buton"/>
+  </label>
+  &nbsp;
+  <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+</div>  
+
+</form>

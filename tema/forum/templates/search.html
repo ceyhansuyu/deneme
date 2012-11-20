@@ -1,0 +1,253 @@
+<!-- IF ARAMA_SONUC -->
+
+
+<!-- IF NERDE == "konularda" --><h1>Arama Sonuçlarý</h1>
+<br />
+<span class="ufak_font sola_cek">{ARANAN}</span>  
+<span class="ufak_font saga_cek"><strong>Bulunan Sonuç:</strong> {BULUNAN_SONUC}</span> 
+
+ <br /> 
+ <br />
+        
+
+
+<span style="float:right; margin-bottom:10px;">{SAYFALAMA}</span>
+
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+   <td colspan="2">&nbsp;</td>  
+    <td width="59%"><div style="float:left;"><a href="javascript:;" title="Reverse Sort Order">Konular</a> / <a href="javascript:;" title="Reverse Sort Order">Konuyu Ba&#351;latan</a></div><div style="float:right;"><a href="javascript:;" title="Reverse Sort Order">Rating</a>&nbsp;</div></td>
+
+   <td width="5%" align="center" nowrap="nowrap"><a href="forumdisplay.php?f={FORUM_ID}&sort=cevap&order={ORDER}" title="{ORDER}">Cevaplar </a></td>
+   <td width="10%" align="center" nowrap="nowrap"><a href="javascript:;" title="Reder">Görüntülenme</a></td>
+   <td width="10%"><a href="javascript:;" title="Reversder">Son Konu</a></td>
+   <td width="10%">Forum</td>
+  </tr>
+  
+<!-- IF KONU_YOK -->
+   <tr class="evenTableRow">
+     <td colspan="7" align="center">  Konu Yok </td>
+   </tr>  
+<!-- ELSE IF -->
+    <!-- BEGIN konurow --> 
+       <!-- IF konurow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+
+	 <td align="center">
+         <img src="{TEMA_YOLU}/images/konu_ikon/{konurow.KONU_RESIM}" alt="Topic" title="Topic" border="0">     </td>
+     <td><img src="{konurow.KONU_IKONU}" alt="Konu ikonu" title="Konu ikonu" border="0"></td>
+   	<td>
+ 
+		<a href="showthread.php?t={konurow.KONU_ID}" title="eeeeeeeee">{konurow.KONU_BASLIK}</a><br>
+		<span class="ufak_font">By <a href="profil.php?u={konurow.KONU_YAZAR_ID}" class="smLink" style="color:#{konurow.KONU_YAZAR_RENK}; font-weight:bold;">{konurow.KONU_YAZAR}</a>, {konurow.KONU_TARIHI}</span>
+	<span style="float:right;"><img src="{konurow.KONU_RATING}" alt="{konurow.KONU_RATING_DEGER}" title="Ortalama {konurow.KONU_RATING_DEGER} oy " /></span></td>
+    <td align="center">{konurow.KONU_CVP_SAYISI}</td>
+    <td align="center">{konurow.KONU_OKUNMA}</td>
+    <td class="ufak_font" nowrap="nowrap">
+   		By <a href="profil.php?u={konurow.SON_MESAJ_YAZAR_ID}" class="smLink" rel="nofollow" style="color:#{konurow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{konurow.SON_MESAJ_YAZAR}</a><br>
+		{konurow.SON_MESAJ_ZAMANI}<a href="showthread.php?t={konurow.KONU_ID}<!-- IF konurow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={konurow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{konurow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son mesajý oku" title="Son mesajý oku" class="img_ortala"></a>  	</td>
+        <td><a href="forumdisplay.php?f={konurow.KONU_FORUM_ID}">{konurow.KONU_FORUM}</a></td>
+  </tr>
+	<!-- END konurow --> 
+   
+<!-- ENDIF -->
+</table>
+<br />
+
+<span style="float:right;">{SAYFALAMA}</span>
+
+
+<!-- ENDIF --> <!-- nerdekonularda bitti -->
+
+
+<!-- IF NERDE == "mesajlarda" -->
+
+<h1>Arama Sonuçlarý</h1>
+<br />
+<span class="ufak_font sola_cek">{ARANAN}</span>  
+<span class="ufak_font saga_cek"><strong>Bulunan Sonuç:</strong> {BULUNAN_SONUC}</span> 
+
+ <br /> 
+ <br />
+        
+
+
+<span style="float:right; margin-bottom:10px;">{SAYFALAMA}</span>
+<br />
+<br />
+
+
+
+
+<!-- IF KONU_YOK -->
+    <div align="center" class="ayar_baslik"><strong>Sonuç Yok</strong></div>
+<!-- ENDIF -->
+
+<!-- BEGIN mesajrow -->
+<table width="100%" align="center" cellpadding="3" cellspacing="1" class="tablo_border">
+  <tr class="gri_ust">
+    <td>{mesajrow.MESAJ_TARIHI}</td>
+  </tr>
+  <tr class="gri_alt">
+    <td>Konu: <a href="showthread.php?t={mesajrow.MESAJ_KONU_ID}">{mesajrow.MESAJ_KONU_BASLIK}</a> <span style="float:right">Cevaplar: {mesajrow.MESAJ_KONU_CEVAPLAR}</span>
+<br />
+Kim: <a href="profil.php?u={mesajrow.MESAJ_YAZAR_ID}">{mesajrow.MESAJ_YAZAR}</a> <span style="float:right">Ýzlenme: {mesajrow.MESAJ_KONU_IZLENME}</span></td>
+  </tr>
+  <tr>
+    <td>
+   <strong class="ufak_font"> Direkt mesaja git:</strong> <a href="showthread.php?t={mesajrow.MESAJ_KONU_ID}&sayfa={mesajrow.SON_MESAJ_SAYFASAY}#mesaj{mesajrow.MESAJ_ID}">{mesajrow.MESAJ_GOVDE}</a>
+<br />
+<div class="cizgi"></div>
+<br />
+{mesajrow.MESAJ_GOVDE2}</td>
+  </tr>
+</table>
+
+<br />
+    <!-- END mesajrow --> 
+    <br />
+<span style="float:right;">{SAYFALAMA}</span>
+
+<!-- ENDIF --> <!-- nerde mesajlarda-->
+
+
+
+
+<!-- ELSE IF -->
+
+<form action="sistem/arama_yap.php" method="post">
+
+<table width="100%" align="center" cellpadding="3" cellspacing="1" class="tablo_border">
+  <tr class="gri_ust">
+   <td colspan="2">Forumlarý ara </td>
+  </tr>
+  <tr class="gri_alt">
+   <td colspan="2"><span class="ufak_font" style="font-weight:lighter;"><strong style="color:#CC0000;">Not:</strong> Aramanýzý ya sadece <strong>Anahtar Kelimeyle</strong> ya da sadece <strong>Kullanýcý Adýyla</strong> yapabilirsiniz.</span></td>
+  </tr>
+  <tr class="tableRow">
+   <td width="50%">
+     <fieldset class="fieldset">
+       <legend>Anahtar Kelimeyle Ara</legend>
+      
+	   <div align="left">
+       <span class="ufak_font">Anahtar Kelimeyle Ara :</span><br />
+       <input name="anahtar_kelime" type="text" id="anahtar_kelime" size="50" maxlength="30" />
+       <br />
+	   </div>
+		</fieldset>    </td>
+   <td valign="top" width="50%">
+   <fieldset class="fieldset">
+   <legend>Kullanýcý Adýyla Ara</legend>
+   <div align="left">
+       <span class="ufak_font">Kullanýcý Adýyla Ara:</span><br />
+       <input name="kul_adiyla" type="text" id="kul_adiyla" size="50" maxlength="30" />
+       <br />
+   </div>
+		</fieldset>   </td>
+  </tr>
+   <tr class="ayar_baslik">
+    <td colspan="2">Arama Seçenekleri</td>
+    </tr>
+   <tr>
+     <td valign="top">
+          
+          <fieldset class="fieldset">
+   <legend>Sýralamayý Seçiniz</legend>
+	
+		  <select name="sonuc_sort" id="sonuc_sort">
+		    <option value="ASC">Artan</option>
+		    <option value="DESC" selected="selected">Azalan</option>
+	      </select>
+     </fieldset> 
+     <br />
+     <fieldset class="fieldset">
+   <legend>Sonuçlarý Göster</legend>
+       
+		<p>
+		  <label>
+	      <input name="sonuc_goster" type="radio" id="sonuc_goster_0" value="mesajlarda" checked="checked" />
+	      Mesajlarda Ara</label>
+		
+		  <label>
+	      <input name="sonuc_goster" type="radio" id="sonuc_goster_1" value="konularda" />
+	      Konu Baþlýklarýnda Ara</label>
+	    </p>
+       <span class="ufak_font"><strong style="color:#CC0000;">Not:</strong> Mesajlarda arama yapýlýrken ayný zamanda <strong>Konu Ýçeriklerinde</strong> de arama yapýlmaktadýr.</span> 
+     </fieldset>     </td>
+     <td valign="top">
+      <fieldset class="fieldset">
+   <legend>Forumlarda Ara</legend>
+   <div align="left">
+       <select name="select_konu[]" size="10" multiple="multiple" id="select_konu[]">
+         <option value="tum_forumlar" selected="selected">Tüm forumlarda Ara</option>
+       
+         <!-- BEGIN kategorirow -->
+         {kategorirow.OPTION}
+                    <!-- BEGIN forumrow -->
+                    {kategorirow.forumrow.OPTION}
+                                      <!-- BEGIN altforumrow -->
+                                      {kategorirow.forumrow.altforumrow.OPTION}
+                                      <!-- END altforumrow --> 
+                    <!-- END forumrow --> 
+         <!-- END kategorirow -->
+       </select>
+       </div>
+		</fieldset>     </td>
+   </tr>
+   
+   <!-- IF not S_LOGIN -->
+   <tr class="ayar_baslik">
+     <td colspan="2" valign="top">Güvenlik Kodu Gerekli</td>
+    </tr>
+   <tr>
+     <td align="left" valign="top">Güvenlik Kodu*<br />
+       <span class="ufak_font">Resimde görünen   karakterleri forma giriniz. Büyük küçük harf farketmez.</span></td>
+     <td valign="top">
+     
+  <!-- IF RECAPTHA_AKTIF -->
+      <script type="text/javascript">
+	    var RecaptchaOptions = 
+		{
+		  theme : 'white'
+	    };
+	 </script>
+  {CAPTCHA}
+   <!-- ELSE -->
+		<table width="100%" border="0" cellpadding="3" cellspacing="1">
+			<tr>
+				<td><img src="captcha/captcha.php" id="captcha"/>
+                
+    <a href="javascript:;" onclick="
+    document.getElementById('captcha').src='captcha/captcha.php?'+Math.random();"
+   id="change-image"><img src="{TEMA_YOLU}/images/yenile.png" class="img_ortala" alt="Yenile"></a>
+    </td>
+			</tr>
+			<tr>
+				<td><input name="guvenlik_kodu" id="captcha-form" size="10" maxlength="25" autocomplete="off" type="text"> 
+					<span class="ufak_font">Lütfen yukarýdaki  karakterleri forma giriniz</span>
+				</td>
+			</tr>
+		</table> 
+       <!-- ENDIF --> 
+      
+      </td>
+   </tr>
+   
+     <!-- ENDIF -->
+   <tr class="tableRow">
+     <td colspan="2" align="center">&nbsp;</td>
+   </tr>
+   <tr class="tableBottomRow">
+      <td colspan="2" align="center"><input name="Submit" id="Submit" value="Aramayý Baþlat" tabindex="60" type="submit" class="buton">
+         <input name="Reset" id="Reset" value="Temizle" tabindex="61" type="reset" class="buton">	  </td>
+   </tr>
+  </table>
+
+
+</form>
+
+
+<!-- ENDIF -->

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+	<title>PHP Forum {BASLIK}</title>
+<!-- CSS -->
+	<link href="{TEMA_YOLU}/css/style.css" rel="stylesheet" type="text/css">
+	<link href="{TEMA_YOLU}/css/sayfalama.css" rel="stylesheet" type="text/css">
+<!--/ CSS -->
+
+
+<!-- datepicker -->
+	<link rel="stylesheet" href="datepicker/css/jquery.ui.all.css">
+	<link rel="stylesheet" href="datepicker/css/demos.css">
+	<script src="datepicker/js/jquery-1.7.1.js"></script>
+	<script src="datepicker/js/jquery.ui.core.js"></script>
+	<script src="datepicker/js/jquery.ui.widget.js"></script>
+	<script src="datepicker/js/jquery.ui.datepicker.js"></script>
+	<script src="datepicker/js/jquery.ui.datepicker-tr.js"></script>
+    
+
+	<script>
+	$(function() {
+		$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+		$( "#datepicker" ).datepicker( $.datepicker.regional[ "tr" ] );
+		$( "#locale" ).change(function() {
+			$( "#datepicker" ).datepicker( "option",
+				$.datepicker.regional[ $( this ).val() ] );
+		});
+	});
+	</script>
+<!--/ datepicker -->
+
+</head>
+<body>
+
+<div class="koca_forumu_topla">
+
+ <div class="logo"><a href="index.php"><img src="{TEMA_YOLU}/images/logo.png" alt="Logo" /></a></div>
+ <div class="logo_menu">
+    
+     
+ 
+    &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/logout.png" alt="Çıkış" title="Çıkış" style="vertical-align: text-bottom;"> <a href="sistem/cikis.php" onclick="return confirm('{EMINMISIN_CIKMAK_ICIN}')">Çıkış</a>
+
+    &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/admin.png" alt="Admin Paneli" title="Admin Paneli" style="vertical-align: text-bottom;"> <a href="index.php">Admin Paneli</a>   
+    
+        &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/forum_home.png" alt="Admin Paneli" title="Admin Paneli" style="vertical-align: text-bottom;"> <a href="../index.php">Forum</a> </div>
+
+

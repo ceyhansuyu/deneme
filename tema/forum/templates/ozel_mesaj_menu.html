@@ -1,0 +1,24 @@
+<div class="sol_taraf_profil">
+        <div class="arrowlistmenu">
+            
+            <div class="headerbar">Özel Mesaj Menü</div>
+            <ul>
+            <li><a href="ozel_mesaj.php">Özel Mesaj Anasayfa</a></li>            
+            <li><a href="?do=yeni_ozel_mesaj">Özel Mesaj Oluþtur</a></li>
+            <li><a href="?do=gelen">Gelen Kutusu ({TOPLAM_GELEN_SAY})</a></li>
+            <li><a href="?do=giden">Giden Kutusu ({TOPLAM_GIDEN_SAY})</a></li>
+            
+            <!-- BEGIN menu_klasorrow --> 
+            
+            <li><a href="?do=klasor&klasorID={menu_klasorrow.KLASOR_ID}"><img src="{TEMA_YOLU}/images/{menu_klasorrow.KLASOR_RESIM}" class="img_ortala" title="Klasörü Sil" /> {menu_klasorrow.KLASOR_ADI} ({menu_klasorrow.KLASOR_MESAJ_SAY})</a></li>
+            
+             <!-- END menu_klasorrow --> 
+            
+            
+            <li><a href="?do=yeni_klasor">Klasör Yönetimi</a></li>
+            </ul>
+        
+        </div>
+
+
+	</div>

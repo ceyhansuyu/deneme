@@ -1,0 +1,123 @@
+ 
+    <!-- INCLUDE tinymice.html -->
+  
+  
+
+ 
+<div class="sag_taraf_profil">
+       <div class="headerbar">
+        Kullanýcý Gruplarýný Yönet
+       </div>
+      <div class="sag_taraf_profil_ic">
+      
+ <div class="ayar_baslik">Kullanýcý Gruplarý </div>
+ <br />
+ <div class="ufak_font">&nbsp;&nbsp;<strong style="color:#CC0000;">Önemli Açýklama:</strong> <strong>Yöneticiler</strong> ve <strong>Normal Kullanýcý</strong> gruplarýný silemezsiniz ! Ancak güncelleyebileceksiniz.</div>
+ <br />
+ 
+<table width="100%" border="0" cellspacing="5" cellpadding="0">  
+    <tr style="color:#CC0000; font-weight:bold;">
+      <td width="20%" valign="top">Gruplar</td>
+      <td width="20%" valign="top">Grup Tarifi</td>
+      <td width="16%" valign="top">Grup Rütbesi</td>
+      <td width="15%" valign="top">Grup Resim</td>
+      <td width="10%" valign="top">Grup Rengi</td>
+      <td width="10%" valign="top">Ýþlem</td>
+    </tr>
+    
+    <!-- BEGIN gruprow -->
+            <!-- IF gruprow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+      <td valign="top">
+        
+        
+{gruprow.GRUP_ADI}
+         </td>
+      <td valign="top">    
+   {gruprow.GRUP_DESC}
+</td>
+      <td valign="top">
+     {gruprow.GRUP_RUTBE}
+      </td>
+      <td valign="top">
+
+        {gruprow.GRUP_RUTBE_IMG}</td>
+      <td valign="top"><font color="{gruprow.GRUP_RENK}">{gruprow.GRUP_RENK}</font></td>
+      <td valign="top">
+      	<a href="sistem/grup_islemleri.php?do=gruplar&islem=sil&grupID={gruprow.GRUP_ID}" onclick="return confirm('Bu grubu silmeyi onaylýyor musunuz?\nBu grubu sildiðiniz taktirde grubun tüm üyeleri normal üye izinlerine sahip olacak.')"><img src="tema/admin/images/ufak_sil.png" width="16" height="16" title="Sil" /></a>
+        &nbsp;
+      	<a href="index.php?do=gruplar&islem=guncelle&grupID={gruprow.GRUP_ID}"><img src="tema/admin/images/edit_ufak.png" width="16" height="16" title="Düzenle" />
+      	</a>
+         </td>
+    </tr>
+  <!-- END gruprow -->
+  </table>
+  <br />
+
+
+<div class="ayar_baslik">Yeni Grup Ekle </div>
+ <form id="gruplar" name="gruplar" method="post" action="sistem/grup_islemleri.php">  
+  <input name="grup_islemi" type="hidden" class="" id="grup_islemi" value="yeni_grup_ekle" size="50" maxlength="50" />
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">  
+          <tr>
+    <td width="32%" valign="top">Grup Adý:</td>
+    <td width="68%" valign="top">
+  <input name="grup_adi" type="text" class="" id="grup_adi" value="" size="50" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Grubun hangi isimle görüneceði.</span>     </td>
+  </tr>
+          <tr>
+    <td valign="top">Grup Tarifi</td>
+    <td valign="top">
+    <input name="grup_desc" type="text" class="" id="grup_desc" value="" size="50" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Grubun tanýtýmý.</span>     </td>
+  </tr>
+  <tr>
+    <td valign="top">Grup Rütbesi</td>
+    <td valign="top">
+    <input name="grup_rutbe_ismi" type="text" class="" id="grup_rutbe_ismi" value="" size="50" maxlength="50" />
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Grubun görünecek rütbe ismi.</span>     </td>
+  </tr>
+  
+    <tr>
+    <td valign="top">Grup Resmi</td>
+    <td valign="top">
+    
+      <select name="grup_rutbe_resim" id="select">
+       <!-- BEGIN rutberow -->
+        <option value="{rutberow.FILE}">{rutberow.FILE}</option>
+         <!-- END rutberow -->
+      </select>
+
+            <br />
+    <span class="sag_taraf_profil_ic_desc">Grubun rütbesinin resmi.</span>     </td>
+  </tr>
+  
+  
+    <tr>
+    <td valign="top">Grup Rengi</td>
+    <td valign="top">
+    <script type="text/javascript" src="jscolor/jscolor.js"></script>
+    <input name="grup_renk" type="text"  class="color" id="grup_renk" value="" maxlength="50" />
+            <br /> <br />
+    <span class="sag_taraf_profil_ic_desc">Grubun görüneceði renk.<strong style="color:#CC0000;">Üzerine Týklayýnýz.</strong></span>     </td>
+  </tr>
+  </table>
+  <br />
+
+  <div align="center">   
+    <input type="submit" name="button" id="button" value="Yeni Grup Ekle" class="buton" />
+  </div>
+</form>
+     <br />
+     
+     
+    </div>
+      <!-- sag_taraf_profil_ic --> 
+    </div><!-- sag_taraf_profil --> 

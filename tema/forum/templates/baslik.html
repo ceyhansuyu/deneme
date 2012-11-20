@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+	<title>PHP Forum {BASLIK}</title>
+<!-- CSS -->
+	<link href="{TEMA_YOLU}/css/style.css" rel="stylesheet" type="text/css">
+	<link href="{TEMA_YOLU}/css/sayfalama.css" rel="stylesheet" type="text/css">
+<!--/ CSS -->
+
+
+<!-- datepicker -->
+	<link rel="stylesheet" href="datepicker/css/jquery.ui.all.css">
+	<link rel="stylesheet" href="datepicker/css/demos.css">
+	<script src="datepicker/js/jquery-1.7.1.js"></script>
+	<script src="datepicker/js/jquery.ui.core.js"></script>
+	<script src="datepicker/js/jquery.ui.widget.js"></script>
+	<script src="datepicker/js/jquery.ui.datepicker.js"></script>
+	<script src="datepicker/js/jquery.ui.datepicker-tr.js"></script>
+    
+
+	<script>
+	$(function() {
+		$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+		$( "#datepicker" ).datepicker( $.datepicker.regional[ "tr" ] );
+		$( "#locale" ).change(function() {
+			$( "#datepicker" ).datepicker( "option",
+				$.datepicker.regional[ $( this ).val() ] );
+		});
+	});
+	</script>
+<!--/ datepicker -->
+
+</head>
+<body>
+
+<div class="koca_forumu_topla">
+
+<span style="float:right;"><!-- IF not S_LOGIN -->	
+        <form method="post"  action="sistem/login_yap.php">
+			<input size="20" name="kul" id="name" style="font-size: 10px;"  type="text">
+			<input size="20" name="sifre" id="sifre" style="font-size: 10px;" type="password">
+            <input name="hatirla" type="checkbox" id="hatirla" value="hatirla">
+			<input value="Giriş" style="font-size: 10px;" class="buton" tabindex="3" type="submit">
+		</form>
+     <!-- ENDIF -->
+     </span>
+
+
+ <div class="logo">
+ <a href="<!-- IF SEO_AKTIFSE -->index.html<!-- ELSE IF -->index.php<!-- ENDIF -->"><img src="{TEMA_YOLU}/images/logo.png" alt="Logo" /></a>
+ </div>
+ <div class="logo_menu">
+ 
+ <a href="<!-- IF SEO_AKTIFSE -->uye_listesi.html<!-- ELSE IF -->uye_listesi.php<!-- ENDIF -->">Üye Listesi</a> 
+ 
+ 
+        &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/unanswered_topics.png" alt="Cevaplanmamış Konular" title="Cevaplanmamış Konular" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->cevapsiz_konular.html<!-- ELSE IF -->cevapsiz_konular.php<!-- ENDIF -->">Cevaplanmamış Konular</a> 
+        
+        &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/yeni_konular.png" alt="Yeni Konular" title="Yeni Konular" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->yeni_konular.html<!-- ELSE IF -->yeni_konular.php<!-- ENDIF -->">Yeni Konular</a>        
+   
+   
+        <!-- IF S_LOGIN -->
+        
+          &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/profili_duzenle.png" alt="Profili Düzenle" title="Profili Düzenle" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->profil_duzenle.html<!-- ELSE IF -->profil_duzenle.php?do=profil_detay<!-- ENDIF -->">Profili Düzenle</a>      
+          
+          &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/profile.png" alt="Profil" title="Profil" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->u{KULLANICI_ID}-{KULLANICI}.html<!-- ELSE IF -->profil.php?u={KULLANICI_ID} <!-- ENDIF -->">Profil</a>
+          
+                    
+          &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/om.png" alt="Özel Mesaj" title="Özel Mesaj" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->ozel_mesaj.html<!-- ELSE IF -->ozel_mesaj.php<!-- ENDIF -->">Özel Mesaj</a> {YENI_PM_SAY}
+          
+       <!-- ENDIF -->
+       
+       &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/FAQ.png" alt="Sıkça Sorulan Sorular" title="Sıkça Sorulan Sorular" style="vertical-align: text-bottom;"> <a href="#">SSS</a>
+       
+       &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/search.png" alt="Forumda Ara" title="Forumda Ara" style="vertical-align: text-bottom;"> <a href="<!-- IF SEO_AKTIFSE -->arama_yap.html<!-- ELSE IF -->search.php<!-- ENDIF -->">Forumda Ara</a></span>
+       
+     <!-- IF not S_LOGIN -->
+       &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/kayit.png" alt="Register" title="Register" style="vertical-align: text-bottom;"> <a href="kayit.php">Kayıt</a>
+       
+       &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/login.png" alt="Login" title="Login" style="vertical-align: text-bottom;"> <a href="login.php">Giriş</a>
+     <!-- ENDIF -->
+     
+     <!-- IF S_LOGIN -->
+    &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/logout.png" alt="Çıkış" title="Çıkış" style="vertical-align: text-bottom;"> <a href="sistem/cikis.php" onclick="return confirm('{EMINMISIN_CIKMAK_ICIN}')">Çıkış</a>
+         <!-- IF S_ADMIN -->
+    &nbsp;&nbsp;<img src="{TEMA_YOLU}/images/admin.png" alt="Admin Paneli" title="Admin Paneli" style="vertical-align: text-bottom;"> <a href="admin/index.php">Admin Paneli</a>     
+         <!-- ENDIF -->
+         
+    <!-- ENDIF -->
+ </div>
+
+
+
+   
+
+
+
+
+	<div class="ufak_font">
+    <strong>Forum tarihi:</strong> {FORUM_TARIH}<br>
+	<!-- IF S_LOGIN -->
+    Son ziyaretiniz <strong>{KUL_SON_GIRIS}</strong><br>
+    <!-- ENDIF -->
+
+
+	
+	</div>
+
+<!-- IF S_LOGIN --><div align="center">Hoşgeldiniz <strong><a href="<!-- IF SEO_AKTIFSE -->u{KULLANICI_ID}-{KULLANICI}.html<!-- ELSE IF -->profil.php?u={KULLANICI_ID} <!-- ENDIF -->" style="color:#{RENK}; font-weight:bold;">{KULLANICI}</a></strong></div>
+<!-- ENDIF -->
+</br>
+<div id="anamenu"><img src="{TEMA_YOLU}/images/forum_home.png" alt="Forum Home" title="Forum Home" style="vertical-align:middle;">&nbsp;{MENU}</div>

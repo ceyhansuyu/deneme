@@ -1,0 +1,37 @@
+#
+
+
+<Files "ayar.php">
+Order Allow,Deny
+Deny from All
+</Files>
+
+Options +FollowSymLinks
+RewriteEngine on
+
+# RewriteRule (.*)-(.*).html araba.php?id=$1
+RewriteRule ^k([1-9][0-9]*)-(.*).html kategoridisplay.php?k=$1
+
+RewriteRule ^f([1-9][0-9]*)-(.*).html forumdisplay.php?f=$1
+RewriteRule ^f([1-9][0-9]*)-(.*)-(.*).html forumdisplay.php?f=$1&sayfa=$2
+
+RewriteRule ^t([1-9][0-9]*)-(.*).html showthread.php?t=$1
+RewriteRule ^t([1-9][0-9]*)-(.*)-(.*).html showthread.php?t=$1&sayfa=$2
+
+RewriteRule ^u([1-9][0-9]*)-(.*).html profil.php?u=$1
+
+
+RewriteRule uye_listesi.html uye_listesi.php
+RewriteRule index.html index.php
+RewriteRule cevapsiz_konular.html cevapsiz_konular.php
+RewriteRule yeni_konular.html yeni_konular.php
+RewriteRule arama_yap.html search.php
+RewriteRule ozel_mesaj.html ozel_mesaj.php
+RewriteRule profil_duzenle.html profil_duzenle.php?do=profil_detay
+RewriteRule sifre_email.html profil_duzenle.php?do=sifre_email
+RewriteRule imza_degistir.html profil_duzenle.php?do=imza
+RewriteRule avatar_degistir.html profil_duzenle.php?do=avatar
+
+RewriteRule benim_aboneliklerim.html profil_duzenle.php?do=abonelik
+
+

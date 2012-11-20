@@ -1,0 +1,157 @@
+
+
+<!-- BEGIN catrow --> 
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+	<td width="5%">&nbsp;</td>
+    <td width="50%">Forum</td>
+	<td width="10%" align="center">Konular</td>
+	<td width="10%" align="center">Mesajlar</td>
+	<td width="30%">Son mesaj</td>
+ </tr>
+ <tr class="gri_alt">
+	<td colspan="5">
+		<a href="<!-- IF SEO_AKTIFSE -->k{catrow.CAT_ID}-{catrow.KATEGORI_SEO}.html<!-- ELSE IF -->kategoridisplay.php?k={catrow.CAT_ID}<!-- ENDIF -->"><strong>{catrow.KATEGORI}</strong></a>
+	</td>
+ </tr>
+<!-- BEGIN forumrow -->
+<!-- IF not forumrow.LINK_MI  -->
+
+        <!-- IF forumrow.S_ROW_COUNT is even -->
+       <tr class="forum_satir1 row1">
+       <!-- ELSE -->	
+       <tr class="forum_satir1 row2">
+       <!-- ENDIF -->
+	<td align="center">
+		<img src="{TEMA_YOLU}/images/konu_ikon/{catrow.forumrow.FORUM_RESIM}" alt="Forum" border="0" title="Forum">
+	</td>
+	<td>
+		<a href="<!-- IF SEO_AKTIFSE -->f{catrow.forumrow.F_ID}-{catrow.forumrow.FORUMLAR_SEO}.html<!-- ELSE IF -->forumdisplay.php?f={catrow.forumrow.F_ID}<!-- ENDIF -->">{catrow.forumrow.FORUMLAR}</a>
+       <!-- IF catrow.forumrow.ONLINE_VAR_MI --><i><span style="color:#CC0000;">({catrow.forumrow.ONLINE_SAYISI} Kiþi Ýzliyor) </span></i><!-- ENDIF --> 
+		<br>
+		{catrow.forumrow.DESC}
+        <!-- IF catrow.forumrow.ALT_FORUM_VAR-->
+   <br />
+       <span class="ufak_font"><strong>Alt forumlar:</strong>
+      <!-- BEGIN altrow -->
+        <img src="{TEMA_YOLU}/images/konu_ikon/{catrow.forumrow.altrow.FORUM_RESIM}" alt="Alt Forum" border="0" title="Alt Forum" class="img_ortala"> <a href="<!-- IF SEO_AKTIFSE -->f{catrow.forumrow.altrow.ALT_F_ID}-{catrow.forumrow.altrow.ALT_FORUM_ADI_SEO}.html<!-- ELSE IF -->forumdisplay.php?f={catrow.forumrow.altrow.ALT_F_ID}<!-- ENDIF -->" class="smLink">{catrow.forumrow.altrow.ALT_FORUM_ADI}</a> 
+        
+      <!-- END altrow -->
+       </span>
+        <!-- ENDIF -->
+   
+   	</td>
+	<td align="center">{catrow.forumrow.TOPLAM_KONU}</td>
+	<td align="center">{catrow.forumrow.TOPLAM_MESAJ}</td>
+	<td class="ufak_font" nowrap="nowrap">
+    
+		<!-- IF not catrow.forumrow.FORUM_BOS -->
+			<a href="<!-- IF SEO_AKTIFSE -->t{catrow.forumrow.SON_MESAJ_KONU_ID}-{catrow.forumrow.SON_MESAJ_SEO}.html<!-- ELSE IF -->showthread.php?t={catrow.forumrow.SON_MESAJ_KONU_ID}<!-- ENDIF -->" title="{catrow.forumrow.SON_MESAJ}"><img src="{catrow.forumrow.SON_MESAJ_IKONU}" alt="Son Mesaj" title="Son Mesaj" class="img_ortala"  /> {catrow.forumrow.SON_MESAJ}</a>
+            
+            <br>By&nbsp;<a href="<!-- IF SEO_AKTIFSE -->u{catrow.forumrow.SON_MESAJ_YAZAR_ID}-{catrow.forumrow.SON_MESAJ_YAZAR}.html<!-- ELSE IF -->profil.php?u={catrow.forumrow.SON_MESAJ_YAZAR_ID} <!-- ENDIF -->" class="smLink" style="color:#{catrow.forumrow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{catrow.forumrow.SON_MESAJ_YAZAR}</a>
+            
+             <a href="showthread.php?t={catrow.forumrow.SON_MESAJ_KONU_ID}<!-- IF catrow.forumrow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={catrow.forumrow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{catrow.forumrow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son Mesaja Git" title="Son Mesaja Git" class="img_ortala"></a>
+             
+             <br>{catrow.forumrow.SON_MESAJ_ZAMAN}
+		<!-- ELSE IF -->
+			-
+		<!-- ENDIF -->
+    </td>
+ </tr>
+ 
+ 
+ 
+ <!-- ENDIF --><!-- ýf not link minin sonu-->
+ 
+ 
+<!-- IF forumrow.LINK_MI  -->
+ 
+   <!-- IF forumrow.S_ROW_COUNT is even -->
+    <tr class="forum_satir1 row1">
+       <!-- ELSE -->	
+       <tr class="forum_satir1 row2">
+       <!-- ENDIF -->
+	<td align="center">
+		<img src="{TEMA_YOLU}/images/konu_ikon/{catrow.forumrow.FORUM_RESIM}" alt="Forum" border="0" title="Forum">
+	</td>
+	<td>
+		<a href="forumdisplay.php?f={catrow.forumrow.LINK_ID}">{catrow.forumrow.LINK_ADI}</a>
+		<br>
+		{catrow.forumrow.LINK_ACIKLAMA}
+   	</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">Sayaç: {catrow.forumrow.LINK_SAYAC}</td>
+	<td class="ufak_font" nowrap="nowrap">   </td>
+ </tr>
+<!-- ENDIF --> <!--link minin sonu-->
+ 
+ 
+ 
+ 
+ 
+
+<!-- END forumrow --> 
+</table>
+<br>
+<!-- END catrow -->
+
+<br>
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+	<td colspan="2">Forumda Neler Oluyor?</td>
+ </tr>
+ <tr class="gri_alt">
+	<td colspan="2">Forum Ýstatistikleri</td>
+ </tr>
+ <tr class="tableRow">
+	<td width="5%" align="center"><img src="{TEMA_YOLU}/images/forum_statistics.png" alt="Forum Statistics" title="Forum Statistics"></td>
+	<td width="95%" nowrap="nowrap">Konular: <strong>{TOPLAM_KONU}</strong> 
+    <br /> Mesajlar: <strong>{TOPLAM_MESAJ}</strong><br>
+	Toplam üye sayýsý: <strong>{TOPLAM_UYE}</strong><br>
+	Yeni üyemiz  <a href="profil.php?u={YENI_UYE_ID}"><strong>{YENI_UYE}</strong></a></td>
+ </tr>
+ 
+ 
+ 
+  <tr class="gri_alt">
+	<td colspan="2">Kullanýcý Gruplarý</td>
+ </tr>
+ <tr class="tableRow">
+	<td colspan="2" height="20" style="padding-left:20px;">
+   
+      <!-- BEGIN gruprow -->  
+      <a href="gruplar.php?grupID={gruprow.GRUP_ID}" style="color:#{gruprow.GRUP_RENK}; font-weight:bold;">{gruprow.GRUP_ADI}</a>
+      <!-- END gruprow -->   
+     <br />  
+       </td>
+  </tr>
+ 
+ 
+ 
+ <tr class="gri_alt">
+	<td colspan="2"><a href="online_kullanicilar.php">Aktif Kullanýcýlar</a></td>
+ </tr>
+ <tr class="tableRow">
+	<td width="5%" align="center"><a href="online_kullanicilar.php"><img src="{TEMA_YOLU}/images/active_users.png" alt="Active Users" title="View Active Users" border="0"></a></td>
+	<td width="95%">
+  
+    <!-- BEGIN onlinerow -->
+   Online Kullanici: <strong>{onlinerow.KUL_SAYISI}</strong>   <br />
+   Online Gizli Kullanici: <strong>{onlinerow.GIZLI_KUL_SAYISI}</strong>   <br />
+   Online Misafir: <strong>{onlinerow.MISAFIR_KUL_SAYISI}</strong>
+   <br/>
+   Bu forumun online çevrimiçi rekoru <strong>{onlinerow.REKOR_ZAMANI}</strong> tarihinde <strong>{onlinerow.REKOR_UYE_SAYISI}</strong> uye ve <strong>{onlinerow.REKOR_MISAFIR_SAYISI}</strong> ziyaretçiyle gerçekleþmiþtir.
+    <!-- END onlinerow -->	</td>
+ </tr>
+</table>
+<br>
+
+<table width="38%" border="0" align="center" cellspacing="5">
+  <tr>
+    <td><img src="{TEMA_YOLU}/images/konu_ikon/forum_new.png" alt="Yeni Forum" title="Yeni Forum"  width="32" height="32" class="img_ortala" /> Yeni Forum</td>
+    <td><img src="{TEMA_YOLU}/images/konu_ikon/forum_old.png" alt="Eski Forum" title="Eski Forum"  width="31" height="32" class="img_ortala" /> Eski Forum</td>
+    <td><img src="{TEMA_YOLU}/images/konu_ikon/forum_link.png" alt="Forum Linki" title="Forum Linki" width="36" height="37" class="img_ortala" /> Link</td>
+  </tr>
+</table>
+
+

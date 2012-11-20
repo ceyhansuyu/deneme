@@ -1,0 +1,57 @@
+
+<h1>Cevaplanmamýþ Konular</h1>
+
+  
+
+ 
+        
+
+
+<span style="float:right; margin-bottom:10px;">{SAYFALAMA}</span>
+
+<table class="tablo_border" align="center" cellpadding="3" cellspacing="1">
+ <tr class="gri_ust">
+   <td colspan="2">&nbsp;</td>  
+    <td width="59%"><div style="float:left;"><a href="javascript:;" title="Reverse Sort Order">Konular</a> / <a href="javascript:;" title="Reverse Sort Order">Konuyu Ba&#351;latan</a></div><div style="float:right;"><a href="javascript:;" title="Reverse Sort Order">Rating</a>&nbsp;</div></td>
+
+   <td width="5%" align="center" nowrap="nowrap"><a href="forumdisplay.php?f={FORUM_ID}&sort=cevap&order={ORDER}" title="{ORDER}">Cevaplar </a></td>
+   <td width="10%" align="center" nowrap="nowrap"><a href="javascript:;" title="Reder">Görüntülenme</a></td>
+   <td width="10%"><a href="javascript:;" title="Reversder">Son Konu</a></td>
+   <td width="10%">Forum</td>
+  </tr>
+  
+<!-- IF KONU_YOK -->
+   <tr class="evenTableRow">
+     <td colspan="7" align="center">  Konu Yok </td>
+   </tr>  
+<!-- ELSE IF -->
+    <!-- BEGIN konurow --> 
+       <!-- IF konurow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+
+	 <td align="center">
+         <img src="{TEMA_YOLU}/images/konu_ikon/{konurow.KONU_RESIM}" alt="Topic" width="20" border="0" title="Topic">     </td>
+     <td><img src="{konurow.KONU_IKONU}" alt="Konu ikonu" title="Konu ikonu" border="0"></td>
+   	<td>
+ 
+		<a href="showthread.php?t={konurow.KONU_ID}" title="eeeeeeeee">{konurow.KONU_BASLIK}</a><br>
+		<span class="ufak_font">By <a href="profil.php?u={konurow.KONU_YAZAR_ID}" class="smLink" style="color:#{konurow.KONU_YAZAR_RENK}; font-weight:bold;">{konurow.KONU_YAZAR}</a>, {konurow.KONU_TARIHI}</span>
+	<span style="float:right;"><img src="{konurow.KONU_RATING}" alt="{konurow.KONU_RATING_DEGER}" title="Ortalama {konurow.KONU_RATING_DEGER} oy " /></span></td>
+    <td align="center">{konurow.KONU_CVP_SAYISI}</td>
+    <td align="center">{konurow.KONU_OKUNMA}</td>
+    <td class="ufak_font" nowrap="nowrap">
+   		By <a href="profil.php?u={konurow.SON_MESAJ_YAZAR_ID}" class="smLink" rel="nofollow" style="color:#{konurow.SON_MESAJ_YAZAR_RENK}; font-weight:bold;">{konurow.SON_MESAJ_YAZAR}</a><br>
+		{konurow.SON_MESAJ_ZAMANI}<a href="showthread.php?t={konurow.KONU_ID}<!-- IF konurow.SON_MESAJ_SAYFASAY == 1 --> <!-- ELSE IF -->&sayfa={konurow.SON_MESAJ_SAYFASAY}<!-- ENDIF -->#mesaj{konurow.SON_MESAJ_ID}"><img src="{TEMA_YOLU}/images/view_last_post.png" alt="Son mesajý oku" title="Son mesajý oku" class="img_ortala"></a>  	</td>
+        <td><a href="forumdisplay.php?f={konurow.KONU_FORUM_ID}">{konurow.KONU_FORUM}</a></td>
+  </tr>
+	<!-- END konurow --> 
+   
+<!-- ENDIF -->
+</table>
+<br />
+
+<span style="float:right;">{SAYFALAMA}</span>
+

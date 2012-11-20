@@ -1,0 +1,66 @@
+ 
+ <form action="sistem/ozel_mesaj_yap.php" method="post" name="profil" id="profil">
+ 
+    <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Özel Mesaj
+       </div>
+      <div class="sag_taraf_profil_ic">
+        <input name="do" type="text" value="{DO}" style="display:none;">
+
+
+
+         <div class="ayar_baslik">Özel Mesaj Oluþturunuz </div>
+         
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+    <label for="kime">Alýcýlar:</label>  <br>    
+    <textarea name="kime" cols="60" class="mceNoEditor" id="kime">{GONDER_KUL_ID}</textarea>
+    <br>
+    <span class="ufak_font">Çoklu kulanýcýlarý <b>","</b> ile ayýrýnýz</span> 
+   <br><br> <div class="cizgi"></div>
+       </td>
+    </tr>
+  <tr>
+    <td valign="top">
+  
+
+   
+    <label for="baslik">Mesajýnýzýn Baþlýðý:</label> <br> 
+     <input name="baslik" type="text" class="" id="baslik" value="" size="60" maxlength="150" />     <br> 
+     <br>
+    <div>
+	<!-- BEGIN konu_ikon -->
+	 <label><input type='radio' name='mesaj_ikonu'     value='{konu_ikon.IMG_SRC}' />
+	 <img border=0  src='{konu_ikon.IMG_SRC}'></label>
+	<!-- END konu_ikon -->
+	</div>     
+     </td>
+    </tr>
+  <tr>
+    <td valign="top">
+   <!-- INCLUDE tinymice.html -->
+ 
+   <textarea name="mesaj" id="mesaj"></textarea>
+      <!-- INCLUDE smilies.html -->
+    </td>
+    </tr>
+    <tr>
+    <td>
+   <div class="temizle"></div>
+    <div align="center">
+      <label>
+			<input type="submit" name="action" id="action" value="Yeni Özel Mesajý Gönder" class="buton"/>
+	  </label>
+  &nbsp;
+            <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+    </div>
+   </td>
+    </tr>
+</table>       
+
+    </div>
+      <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil --> 
+	 </form> 

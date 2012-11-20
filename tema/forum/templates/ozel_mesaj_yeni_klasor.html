@@ -1,0 +1,88 @@
+ 
+ <form action="sistem/ozel_mesaj_yap.php" method="post" name="profil" id="profil">
+ 
+    <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Özel Mesaj
+       </div>
+      <div class="sag_taraf_profil_ic">
+        <input name="do" type="text" value="{DO}" style="display:none;">
+
+
+
+         <div class="ayar_baslik">Yeni Klasör Oluþturunuz</div>
+         
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top" align="center">
+  
+    <label for="klasor_adi"></label>
+    <br> 
+
+    <label>
+    <select name="klasor_renk" id="klasor_renk">
+      <option value="beyaz.png" selected="selected">Beyaz</option>
+      <option value="sari.png">Sarý</option>
+      <option value="mavi.png">Mavi</option>
+      <option value="yesil.png">Yeþil</option>
+      <option value="kirmizi.png">Kýrmýzý</option>
+    </select>
+    </label>     
+    <input name="klasor_adi" type="text" class="" id="klasor_adi" value="" size="30" maxlength="150" />     
+     <br> 
+     <br>     
+     </td></tr>
+
+    <tr>
+    <td>
+    <div align="center">
+      <label>
+			<input type="submit" name="action" id="action" value="Yeni Klasör Oluþtur" class="buton"/>
+	  </label>
+  &nbsp;
+            <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+    </div>
+   </td>
+    </tr>
+
+</table>     
+
+  <br />
+  
+ <div class="ayar_baslik"> Klasörleriniz </div>
+ <table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top" align="center">
+     <!-- BEGIN klasorrow --> 
+      
+      <img src="{TEMA_YOLU}/images/{klasorrow.KLASOR_RESIM}" class="img_ortala"/> <label>
+    <select name="klasor_renk_guncelle[]" id="klasor_renk">
+      <option value="beyaz.png" {klasorrow.KLASOR_BEYAZ} >Beyaz</option>
+      <option value="sari.png" {klasorrow.KLASOR_SARI} >Sarý</option>
+      <option value="mavi.png" {klasorrow.KLASOR_MAVI} >Mavi</option>
+      <option value="yesil.png" {klasorrow.KLASOR_YESIL} >Yeþil</option>
+      <option value="kirmizi.png" {klasorrow.KLASOR_KIRMIZI} >Kýrmýzý</option>
+      
+     
+ 
+    </select>
+    </label>     
+      
+      <input type="text" name="klasor_id[]" id="textfield" value="{klasorrow.KLASOR_ID}"  style="display:none;"/>
+      
+   <label>
+    <input name="klasor_adi_guncelle[]" type="text" class="" id="klasor_adi" value="{klasorrow.KLASOR_ADI}" size="30" maxlength="150" />    </label>
+     <a href="sistem/ozel_mesaj_yap.php?do=klasor_sil&klasorID={klasorrow.KLASOR_ID}" onclick="return confirm('Bu klasörü silmeyi onaylýyor musunuz?')"><img src="{TEMA_YOLU}/images/ufak_sil.png" class="img_ortala" title="Klasörü Sil" /></a>
+
+     <div class="cizgi"></div>
+
+     <!-- END klasorrow -->   
+    <input type="submit" name="action" id="button" value="Klasörleri Güncelle"  class="buton" /> 
+      </td>
+    </tr>
+    </table>
+
+    </div>
+      <!-- sag_taraf_profil_ic --> 
+   </div><!-- sag_taraf_profil --> 
+</form> 

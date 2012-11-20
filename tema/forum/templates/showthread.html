@@ -1,0 +1,348 @@
+
+
+<script type="text/javascript">
+// <![CDATA[
+
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+
+// ]]>
+</script>
+
+<a name="top"></a> 
+ 
+ <!-- IF ANKET_VAR -->
+ <br />
+<div class="anket"> <h1> <span class="anket_baslik"><!-- IF ANKET_SONUC -->Anket Sonucu:<!-- ELSE IF -->Anket:<!-- ENDIF --></span> <span class="anket_sorusu">{ANKET_SORUSU}</span> 
+ <!-- IF ANKET_DUZEN_IZIN -->
+ <a href="anket_duzenle.php?t={KONU_ID}&anketid={ANKET_ID}"><img name="Anket Düzenle" src="{TEMA_YOLU}/images/edit_ufak.png" width="16" height="16" alt="Anket Düzenle" /></a>
+ <!-- ENDIF -->
+ 
+  </h1>
+<span class="ufak_font" style="position:absolute; margin-top:-10px;">{ANKET_ACIKLAMA}</span>
+<!-- IF ANKET_SURELI -->
+<span class="ufak_font" style="position:absolute; margin-top:5px;"><strong>{ANKET_SURESI}</strong> tarihinde anket sona erecek</span>
+<br />
+<!-- ENDIF -->
+   
+<br />
+  <form action="sistem/anket_oyla.php" method="post">
+  <input name="konu_id" type="text" id="konu_id" value="{KONU_ID}" size="5" maxlength="100" style="display:none;" />
+  
+    <input name="anket_id" type="text" id="anket_id" value="{ANKET_ID}" size="5" maxlength="100" style="display:none;" />
+  
+    <!-- IF ANKET_SONUC -->
+   
+      <!-- BEGIN sonucrow -->
+  <label> {sonucrow.SECENEK}</label> {sonucrow.KUL_OYU}<br />
+<div style="float:left; height:10px; width:70%"><div class="anket_renk{sonucrow.SECENEK_KEY_ID}" style="width:{sonucrow.YUZDE}%; min-width:1%"></div></div><div style="float:right; width:29%; height:8px; margin-top:-3px;" align="left">%{sonucrow.YUZDE} &nbsp;{sonucrow.TOPLAM_SEC_OYU} </div><br />
+    <!-- END  sonucrow -->    
+   
+    <!-- ELSE IF -->
+
+
+      <!-- BEGIN secenekrow -->
+  <label> <input name="secenek" type="radio" id="{secenekrow.SECENEK_KEY_ID}" value="{secenekrow.SECENEK_KEY_ID}" {secenekrow.DISABLED} {secenekrow.KUL_OYU} /> 
+  {secenekrow.SECENEK}</label><br />
+    <!-- END  secenekrow --> 
+    
+    <!-- ENDIF -->
+ 
+    <br />
+    <!-- IF ANKET_SONUC -->
+   <label>
+  <input type="submit" name="action" id="action" value="Gönder" class="buton" disabled="disabled" /> 
+   </label>
+   
+   <label> <input type="submit" name="action" id="action" value="Ankete Git" class="buton" /> </label>
+     <!-- ELSE IF -->
+       <label>
+  <input type="submit" name="action" id="action" value="Gönder" class="buton" {DISABLED} /> 
+   </label>
+ <label> <input type="submit" name="action" id="action" value="Anket Sonuçlarý" class="buton" /></label> 
+  <!-- ENDIF -->
+  
+   </div>
+ <!-- ENDIF --> <!--ifanketvarin sonu-->
+ </form>
+ 
+ 
+ 
+ <!-- BEGIN konurow --> 
+
+<h1>{konurow.KONU_BASLIK}</h1>
+
+		<span style="float:left;"><label for="cevap"><a href="#cvp" title="Cevap Yaz"><img src="{TEMA_YOLU}/images/cevap_yaz.gif" alt="Cevap Yaz" border="0"></a> </label> </span>
+        
+  <span align="right" style="float:right">{SAYFALA}</span>
+
+  <!-- END konurow --> 
+  <br />
+  <br />
+  <br />
+<span class="saga_cek">
+   <!-- IF ABONE_VAR -->
+   <a href="sistem/abonelikler.php?do=abonelik_sil&konuID={KONU_ID}">Bu konudan aboneliði sil</a>
+   <!-- ELSE IF --> 
+   <a href="sistem/abonelikler.php?do=abonelik_ekle&konuID={KONU_ID}">Bu konuya abone ol</a>
+   <!-- ENDIF -->
+</span>
+<br/><br/>
+
+<table width="100%" border="0" cellpadding="3" cellspacing="1" class="tablo_border">
+  <tr class="gri_ust">
+    <td width="140" valign="top">yazar</td>
+    <td width="357" align="left">mesaj</td>
+    <td width="51"><img src="{KONU_RATING}" alt="{KONU_RATING_DEGER}" title="Ortalama {KONU_RATING_DEGER} Puan" style="float:left"/> </td>
+    <td width="149"><form id="form1" name="form1" method="post" action="sistem/rating_konu.php?id={KONU_ID}">
+       <label>
+        <select name="konuyu_degerlendir" class="konu_oy_select" id="oyla"  onchange="this.form.submit();">
+          <option>Konuyu Degerlendir</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        </label>
+    </form></td>
+  </tr>
+  </table>
+ <form id="mesaj" name="mesaj" method="post" action="fdsfds">
+     <!-- BEGIN mesajrow --> 
+     <a name="mesaj{mesajrow.MESAJ_ID}" id="mesaj{mesajrow.MESAJ_ID}"></a> 
+     <table width="100%" border="0" cellpadding="3" cellspacing="1" class="tablo_border">
+     <tr class="gri_ust"> 
+     <td colspan="5"><span class="sola_cek">{mesajrow.MESAJ_TARIHI}</span> 
+     <span class="saga_cek"><a href="#mesaj{mesajrow.MESAJ_ID}" title="">#{mesajrow.MESAJ_SAYISI}</a> 
+     <!-- IF S_ADMIN -->
+     <label>
+      <input name="mesajID[]" type="checkbox" id="checkbox2" value="{mesajrow.MESAJ_ID}"  class="img_ortala"/>
+      </label>
+      <!-- ENDIF -->
+      </span> </td>
+</tr>
+       <!-- IF mesajrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+    <td valign="top" width="150">
+    
+	   
+       <div align="center">
+          <img src="{mesajrow.MESAJ_KUL_AVATAR}" alt="{mesajrow.MESAJ_YAZAR}" /> 
+          <br /> <br />
+          <img src="resim/rutbe/{mesajrow.MESAJ_KUL_RUTBE_IMG}" alt="{mesajrow.MESAJ_KUL_RUTBE_IMG}" />    
+       </div>
+     <br />
+	   <div class="profil_alani"><strong>Nick:</strong> {mesajrow.MESAJ_YAZAR}</div>
+	 
+	   <div class="profil_alani"><strong>Grup:</strong> {mesajrow.MESAJ_KUL_RUTBE}</div>
+
+	  
+	   <div class="profil_alani"><strong>Kayýt:</strong> {mesajrow.MESAJ_KUL_KAYIT_TARIHI}</div>
+	   
+	  <div class="profil_alani"> <strong>Durum:</strong> {mesajrow.MESAJ_KUL_DURUM} </div>
+      
+	  <!-- IF mesajrow.MESAJ_KUL_YER != "" -->
+      <div class="profil_alani"><strong>Yer:</strong> {mesajrow.MESAJ_KUL_YER}</div>    
+      <!-- ENDIF -->    
+      
+       </td>
+    <td colspan="3" valign="top"  style="line-height:20px;">
+       <span style="float:right">    </span>	
+
+	<span style="float:left;" class="ufak_font">	<a href="#mesaj{mesajrow.MESAJ_ID}" title=""><img src="{mesajrow.MESAJ_IKONU}" alt="Direkt mesaja git"></a> <strong>Konu: {mesajrow.MESAJ_BASLIK}</strong></span>
+     
+      <div class="temizle cizgi"></div>
+        <!-- Uye mesaji basladi -->
+      <div class="mesaj_body">
+       {mesajrow.MESAJ_GOVDE}     
+      </div>
+      <!-- IF mesajrow.MESAJ_EDIT_VAR -->
+    
+      <div class="mesaj_hr"></div>
+      <div class="ufak_font"> 
+        <em>Konu <strong>{mesajrow.MESAJ_EDIT_KIM}</strong> tarafýndan ({mesajrow.MESAJ_EDIT_ZAMAN}) tarihinde toplamda <strong>{mesajrow.MESAJ_EDIT_SAYISI}</strong> kez deðiþtirilmiþtir.
+        <!-- IF mesajrow.MESAJ_SEBEP_VAR --> 
+        <strong>Düzenleme Sebebi:</strong> {mesajrow.MESAJ_EDIT_SEBEP} </em>
+        <!-- ENDIF -->
+        </div>
+      <!-- ENDIF -->
+    
+     <!-- IF mesajrow.MESAJ_KUL_IMZA_VARMI -->
+     <div class="cizgi"></div>
+     {mesajrow.MESAJ_KUL_IMZA}
+      <!-- ENDIF -->
+      
+         
+      <!-- Uye mesaji bitti --> </td>
+  </tr>
+  
+         <!-- IF mesajrow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+  <tr class="row2">
+       <!-- ENDIF -->
+    <td>
+    <ul class="ufak_buton">
+       <li><a href="ihbar.php?k={mesajrow.MESAJ_KONU_ID}&mesaj={mesajrow.MESAJ_ID}"><span><img src="{TEMA_YOLU}/images/uyari.png" title="Mesajý Bildir" alt="Mesaji Bildir" style="vertical-align: text-bottom;"> Mesajý Bildir </span></a></li>
+	</ul>
+    
+    </td>
+    <td colspan="3">
+	<div style="position:absolute; margin-left:-35px; margin-top:7px; width:40%;" class="ufak_font">
+         
+       <ul class="ufak_buton">
+     
+        <li><a href="quote.php?k={mesajrow.MESAJ_KONU_ID}&mesaj={mesajrow.MESAJ_ID}&sayfa={mesajrow.MESAJ_SAYFA}"><span><img src="{TEMA_YOLU}/images/quote.png" title="Alýntý" alt="Alýntý" style="vertical-align: text-bottom;"> Alýntý</span></a></li>
+        
+  <!-- IF S_DUZENLE -->
+        <li><a href="edit.php?k={mesajrow.MESAJ_KONU_ID}&mesaj={mesajrow.MESAJ_ID}"><span><img src="{TEMA_YOLU}/images/edit_ufak.png" title="Düzenle" alt="Düzenle" style="vertical-align: text-bottom;"> Düzenle</span></a></li>
+    <!-- ENDIF -->
+        
+        <!-- IF S_SILME -->
+        <li><a href="sistem/sil.php?t={mesajrow.MESAJ_KONU_ID}&mesaj={mesajrow.MESAJ_ID}" onclick="return confirm('Bu mesajý silmeyi onaylýyor musunuz?')"><span><img src="{TEMA_YOLU}/images/ufak_sil.png" title="Sil" alt="Sil" style="vertical-align: text-bottom;"> Sil</span></a></li>
+        <!-- ENDIF -->
+       
+	</ul>
+  </div>      
+
+         
+	<div style="float:right; width:50%; margin-right:-35px;" class="ufak_font">
+      <ul class="ufak_buton">
+     
+        <li><a href="ozel_mesaj.php?do=yeni_ozel_mesaj&u={mesajrow.MESAJ_YAZAR_ID}" title="Özel Mesaj"><span><img src="{TEMA_YOLU}/images/pm.png" title="Özel Mesaj" alt="Özel Mesaj" style="vertical-align: text-bottom;"> Özel Mesaj</span></a></li>
+        
+        <li><a href="profil.php?u={mesajrow.MESAJ_YAZAR_ID}"><span><img src="{TEMA_YOLU}/images/profil.png" title="Profil" alt="Profil" style="vertical-align: text-bottom;"> Profil</span></a></li>
+                
+        <li><a href="mailto:{mesajrow.MESAJ_KUL_EPOSTA}"><span><img src="{TEMA_YOLU}/images/email.png" title="Email" alt="Email" style="vertical-align: text-bottom;"> Email</span></a></li>
+        
+      <li><a href="#top"><span><img src="{TEMA_YOLU}/images/yukari.png" title="Yukarý" alt="Yukarý" style="vertical-align: text-bottom;"></span></a></li>
+       
+	</ul>	
+                 
+           </div>	
+       </td>
+  </tr>
+   
+
+   
+</table>
+<br />
+<!-- END mesajrow --> 
+ 
+ 
+ </form>
+ 
+
+ 
+
+
+   
+
+   <span style="float:left;"><label for="cevap"><a href="#cvp" title="Cevap Yaz"><img src="{TEMA_YOLU}/images/cevap_yaz.gif" alt="Cevap Yaz" border="0"></a> </label></span>
+  
+      <span align="right"  style="float:right; margin-top:10px;">{SAYFALA}</span>
+   
+<br/><br/>
+<br />
+
+<br/>
+<div class="headerbar">Kimler Bu Konuda </div>
+    <div class="sag_taraf_profil_ic" style="padding:10px;">  
+   <!-- BEGIN kulrow -->
+     {konurow.kulrow.KUL_LINKI} 
+   <!-- END kulrow -->  Misafir:<strong>{MISAFIRSAY} </strong>
+   </div>
+<br/>
+<!-- IF S_ADMIN -->
+<span style="float:right;"><a href="#" onclick="marklist('mesaj', 'mesajID', true); return false;">Tümünü iþaretle</a> :: <a href="#" onclick="marklist('mesaj', 'mesajID', false); return false;">Tüm iþaretleri kaldýr</a></span>
+<!-- ENDIF -->
+<br/><br/>
+<!-- BEGIN konurow --> 
+
+ <!-- IF S_LOGIN -->
+<form method="post" name="form_mesaj_gonder"  action="sistem/yeni_mesaj_ac.php" >
+  <input name="mesaj_ikonu" type="text" id="mesaj_ikonu" value="{konurow.KONU_IKONU}" size="50" maxlength="250" style="display:none;" />
+
+<table class="tablo_border" cellpadding="2" cellspacing="1" align="left">
+        <tr class="gri_ust">
+		   <td>Cevap Yaz</td>
+	    </tr>
+		<tr class="tableRow">
+			<td>
+				<table cellpadding="2" cellspacing="0" align="center">
+					<tr class="tableRow">
+					    <td valign="top" align="right">Baþlýk</td>
+					    <td valign="top">
+                          <label>
+                          <input name="forum_id" type="text" id="forum_id" value="{konurow.KONU_FORUM_ID}" size="20" maxlength="20" style="display:none;"/>
+                          </label>
+						  <input name="cevap_baslik" type="text" id="mesaj_baslik" value="Re: {konurow.KONU_BASLIK}" size="50" maxlength="60" />
+					    </td>
+				  </tr>
+					<tr class="tableRow">
+					    <td valign="top" width="10%" align="right">
+					      <br>
+					      <a name="cvp" id="cvp"></a>Mesaj:     
+					    </td>
+					    <td valign="top" width="100%">
+					      <input name="konu_id" value="{KONU_ID}" type="text" style="display:none;" />
+				          <!-- INCLUDE editor.html -->
+                        <!-- INCLUDE smilies.html -->
+					 					 
+						</td>
+					</tr>
+					<tr class="tableRow">
+					   <td>&nbsp;</td>
+					   <td width="90%">
+					      <input id="Submit" class="buton" name="Submit" value="Cevap Yaz"   type="submit">
+					      <input name="Reset" class="buton" id="Reset" value="Temizle"  type="reset">      
+						</td>
+					</tr>
+				</table>
+           </td>
+      </tr>
+    </table>
+</form>
+<!-- ENDIF -->
+
+<br>
+
+<!-- END konurow --> 

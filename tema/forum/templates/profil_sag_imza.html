@@ -1,0 +1,42 @@
+<form action="sistem/profil_duzenle.php" method="post" name="profil" id="profil">
+
+
+  <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Ýmzanýzý Düzenleyiniz
+       </div>
+       <div class="sag_taraf_profil_ic">
+         <div class="ayar_baslik">Önizleme </div>
+         <input name="do" type="text" value="{DO}" style="display:none;">
+   <table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+   <td valign="top">{IMZA}</td>
+   </tr>
+</table>
+ <div class="ayar_baslik">Ýmza Düzenleme </div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+   <td width="39%" valign="top">
+   Ýmzanýz   
+   <br>
+    <span class="ufak_font">BBcode aktif</span>    </td>
+   <td width="61%"  valign="top">
+   <!-- INCLUDE tinymice.html -->
+   <textarea name="imza" cols="60" rows="5" class="profil_input" id="imza">{IMZA}</textarea></td>
+  </tr>
+</table>       
+
+ 
+    </div>
+       <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil -->
+     
+    <div class="temizle"></div>
+<div align="center">
+  <label>
+  <input type="submit" name="button" id="button" value="G&ouml;nder" class="buton"/>
+  </label>
+  &nbsp;
+  <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+</div>
+  </form>

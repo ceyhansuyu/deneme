@@ -1,0 +1,165 @@
+<form action="sistem/yeni_mesaj_alinti_ac.php" method="post" name="form" id="form">
+
+
+
+
+<!-- TinyMCE -->
+<script type="text/javascript" src="editor/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+	    plugins : "",
+		theme : "advanced",
+		language : "tr",
+		
+		
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,ustucizikmy,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect,forecolor,backcolor",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,bullist,numlist,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,image,cleanup,|,|,quotemy,codemy,phpmy,youtubemy,|,code",
+		
+
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+		
+		setup : function(ed) 
+		{
+        // Add a custom button
+        ed.addButton('codemy', {
+            title : 'Code',
+            image : 'editor/code.gif',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+                //ed.selection.setContent('[CODE]{$selection}[/CODE]');
+				ed.execCommand('mceReplaceContent',false,'[CODE]{$selection}[/CODE]');return false;
+            }
+          });
+		  
+		  
+		  
+		  // Add a custom button
+        ed.addButton('phpmy', {
+            title : 'Php',
+            image : 'editor/php.gif',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+                //ed.selection.setContent('[CODE]{$selection}[/CODE]');
+				ed.execCommand('mceReplaceContent',false,'[PHP]{$selection}[/PHP]');return false;
+            }
+          });
+       
+
+		  // Add a custom button
+        ed.addButton('youtubemy', {
+            title : 'Youtube',
+            image : 'editor/youtube.png',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+                //ed.selection.setContent('[CODE]{$selection}[/CODE]');
+				ed.execCommand('mceReplaceContent',false,'[YOUTUBE]{$selection}[/YOUTUBE]');return false;
+            }
+          });	   
+	   
+
+	   
+	   
+		  // Add a custom button
+        ed.addButton('quotemy', {
+            title : 'Quote',
+            image : 'editor/quote.gif',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+                //ed.selection.setContent('[CODE]{$selection}[/CODE]');
+				ed.execCommand('mceReplaceContent',false,'[QUOTE]{$selection}[/QUOTE]');return false;
+            }
+          });
+		  
+
+		  // Add a custom button
+        ed.addButton('ustucizikmy', {
+            title : 'Üst Çizgi',
+            image : 'editor/strike.png',
+            onclick : function() {
+                // Add you own code to execute something on click
+                ed.focus();
+                //ed.selection.setContent('[CODE]{$selection}[/CODE]');
+				ed.execCommand('mceReplaceContent',false,'[S]{$selection}[/S]');return false;
+            }
+          });		  
+		  
+		  
+       }
+
+
+		
+
+	});
+</script>
+<!-- /TinyMCE -->
+
+
+<table class="tablo_border" cellpadding="3" cellspacing="1" align="center">
+  
+  <tr class="gri_ust">
+    <td align="left">Yeni Konu Aç</td>
+  </tr>
+  <tr class="tableRow">
+    <td align="left">        
+    
+    <table width="98%" align="center" cellpadding="2" cellspacing="0">
+        <tr>
+          <td align="right">Konu:</td>
+          <td width="80%" align="left">
+           <input name="forum_id" type="text" id="forum_id" value="{HANGI_FORUMA}" size="20" maxlength="20" style="display:none;"/>
+           
+                      <input name="forum_ikon" type="text" id="forum_ikon" value="{IKON}" size="20" maxlength="20" style="display:none;"/>
+           
+          <input name="cevap_baslik"  type="text" id="mesaj_baslik" value="{MESAJ_BASLIK}"  size="30" />
+          <input name="hangi_konu" size="10"  value="{HANGI_KONUYA}" type="text" style="display:none;" />
+   </td>
+        </tr>
+        <tr>
+          <td width="15%" align="right">&nbsp;</td>
+          <td width="60%" align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top" width="15%" align="right"><br />
+            <br />
+           	<br />
+           	<br />
+            Mesaj:
+        	</td>
+          <td valign="top" width="80%">
+          
+
+
+<textarea name="editor" cols="60" rows="10" id="area2">
+[QUOTE={MESAJ_YAZAR}] {MESAJ}[/QUOTE]</textarea>
+ <!-- INCLUDE smilies.html -->
+          
+            </td>
+        </tr>
+        <tr>
+          <td align="right">&nbsp;</td>
+          <td valign="bottom" align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td width="80%" align="left">
+            <input id="Submit" name="Submit" value="Cevapla"  tabindex="26" type="submit" class="buton" />
+            <input name="Reset" id="Reset" value="Formu Temizle" tabindex="28" type="reset" class="buton"/>              </td>
+        </tr>
+        
+    </table>
+  </td>
+ </tr>
+</table>
+<p>&nbsp;</p>
+
+
+</form>

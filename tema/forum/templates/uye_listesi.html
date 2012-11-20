@@ -1,0 +1,69 @@
+
+
+
+<h1>Üye Listesi</h1>
+ <form id="forum" name="forum" method="post" action="fdsfds">
+ <SPAN class="ufak_font">Toplam <strong>{KUL_SAYISI}</strong> üye </SPAN>
+    
+  <!-- IF S_VAR -->
+   <div align="right" style="margin-right:0px;">{SAYFALA} </div>
+   <br />
+    <!-- ENDIF -->
+    
+<table width="100%" align="center" cellpadding="3" cellspacing="1" class="tablo_border">
+    <tr class="gri_ust">
+        <td width="31%">Kullanýcý Adý</td>
+      <td width="30%">Kayýt</td>
+      <td width="20%">Mesaj</td>
+      <td width="19%">Eposta</td>
+    </tr>
+    <!-- BEGIN uyerow -->
+       <!-- IF uyerow.S_ROW_COUNT is even -->
+       <tr class="row1">
+       <!-- ELSE -->	
+       <tr class="row2">
+       <!-- ENDIF -->
+   
+        <td><a href="<!-- IF SEO_AKTIFSE -->u{uyerow.KUL_ID}-{uyerow.KUL_ADI_SEO}.html<!-- ELSE IF -->profil.php?u={uyerow.KUL_ID}<!-- ENDIF -->" style="color:#{uyerow.RENK}; font-weight:bold;">{uyerow.KUL_ADI}</a></td>
+        <td>{uyerow.KUL_KAYIT_TARIHI}</td>
+        <td> 
+           <a href="ozel_mesaj.php?do=yeni_ozel_mesaj&u={uyerow.KUL_ID}" title="Özel Mesaj"><span><img src="{TEMA_YOLU}/images/pm.png" title="Özel Mesaj" alt="Özel Mesaj" style="vertical-align:middle;"> Özel Mesaj</span></a>
+           
+        
+        
+        </td>
+        <td>
+       <a href="mailto:{uyerow.KUL_EPOSTA}"><span><img src="{TEMA_YOLU}/images/email.png" title="Email" alt="Email" style="vertical-align: middle;"> Email</span></a>
+        </td>
+      </tr>
+      <!-- END uyerow --> 
+      
+   
+   </table>
+  
+  <!-- IF S_VAR -->
+  <br />
+<div align="right" style="margin-right:0px; width:600px; float:right;">{SAYFALA}</div>
+<!-- ENDIF -->
+
+<div class="temizle"></div>
+
+
+<br />
+<div class="headerbar">Kimler Bu Sayfada </div>
+    <div class="sag_taraf_profil_ic" style="padding:10px;">  
+   <!-- BEGIN kulrow -->
+     {kulrow.KUL_LINKI} 
+   <!-- END kulrow -->   Misafir:<strong>{MISAFIRSAY} </strong>
+   </div>
+<br />
+
+
+
+
+
+<div class="temizle"></div>
+<br />
+<br />
+<br />
+</form>

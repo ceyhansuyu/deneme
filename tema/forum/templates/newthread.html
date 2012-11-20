@@ -1,0 +1,81 @@
+<form action="sistem/yeni_konu_ac.php" method="post" name="form" id="form">
+
+<table class="tablo_border" cellpadding="3" cellspacing="0" align="center">
+  
+  <tr class="gri_ust">
+    <td align="left">Yeni Konu Aç</td>
+  </tr>
+  <tr class="tableRow">
+    <td align="left">        
+    
+    <table width="98%" align="center" cellpadding="2" cellspacing="0">
+        <tr>
+          <td align="right">Konu ikonu:</td>
+          <td align="left"><div>
+	<!-- BEGIN konu_ikon -->
+	 <label><input type='radio' name='konu_ikonu'     value='{konu_ikon.IMG_SRC}' /><img border=0  src='{konu_ikon.IMG_SRC}'></label>
+	<!-- END konu_ikon -->
+	</div><br /></td>
+        </tr>
+        <tr>
+          <td align="right">Konu:</td>
+          <td width="77%" align="left">
+          <input name="konu_baslik"  type="text"  size="50" maxlength="100" />
+          <input name="hangi_forum" size="10"  value="{HANGI_FORUMA}" type="text" style="display:none;" />
+          <input name="kullanici" size="10"  value="{KULLANICI}" type="text" style="display:none;" />
+
+            &nbsp;Mesaj Modu:
+            <select name="mode" >
+              <option value="normal" selected="selected">Normal Konu</option>
+              <option value="sabit">Sabit Konu</option>
+              <option value="duyuru">Duyuru (bu forum)</option>
+            </select>            </td>
+        </tr>
+        <tr>
+          <td width="23%" align="right">&nbsp;</td>
+          <td width="77%" align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top" width="23%" align="right"><br />
+            <br />
+           	<br />
+           	<br />
+            Mesaj:        	</td>
+          <td valign="top" width="77%"><!-- INCLUDE editor.html -->
+          <!-- INCLUDE smilies.html -->
+           	 </td>
+        </tr>
+       <!-- IF ANKET_IZIN -->       
+       <tr>
+          <td colspan="2" align="right" class="ayar_baslik">&nbsp;</td>
+          </tr>
+
+        <tr>
+          <td align="right">
+            <label for="anket_yap"><strong>Anket Yolla</strong></label>          </td>
+          <td valign="middle" align="left">
+         
+           <label for="anket_sayisi"> <input name="anket_yap" type="checkbox" id="anket_yap" value="anket_yap" /></label>
+          <br /></td>
+        </tr>
+        <tr>
+          <td align="right"><label for="anket_sure"><strong>Anket Seçenek Sayýsý</strong><br /><span class="ufak_font">En fazla {MAKS_ANKET_SAYISI}</span>       </label>   </td>
+          <td valign="middle" align="left"><label>
+            <input  name="anket_sayisi" type="text" id="anket_sayisi" value="4" size="5" maxlength="10" />
+          </label></td>
+        </tr>
+        <!-- ENDIF -->
+        <tr>
+          <td>&nbsp;</td>
+          <td width="77%" align="left">
+            <input id="Submit" name="Submit" class="buton" value="Yeni Konu Aç"  tabindex="26" type="submit" />
+            <input name="Reset" id="Reset"  class="buton" value="Formu Temizle" tabindex="28" type="reset" />              </td>
+        </tr>
+    </table>
+  </td>
+ </tr>
+</table>
+<p>&nbsp;</p>
+
+
+</form>

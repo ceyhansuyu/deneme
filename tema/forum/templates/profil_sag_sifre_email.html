@@ -1,0 +1,52 @@
+<form action="sistem/profil_duzenle.php" method="post" name="profil" id="profil">
+
+  <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Þifre ve Email Detaylarý;
+       </div>
+       <div class="sag_taraf_profil_ic">
+         <div class="ayar_baslik">Ýletiþim  Bilgileri </div>
+   <input name="do" type="text" value="{DO}" style="display:none;">
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+   <td width="39%" valign="top"><label for="yeni_sifre">Yeni Þifre</label></td>
+   <td width="61%"  valign="top"><input name="yeni_sifre" type="password" class="profil_input" id="yeni_sifre" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="yeni_sifre_tekrar">Yeni Þifre Tekrar</label></td>
+    <td valign="top"><input name="yeni_sifre_tekrar" type="password" class="profil_input" id="yeni_sifre_tekrar" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="email">Þu anki E-posta Adresiniz:</label></td>
+    <td valign="top"><span id="email">{EMAIL}</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="yeni_email">Yeni Email :</label></td>
+    <td valign="top"><input name="yeni_email" type="text" class="profil_input" id="yeni_email" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td width="39%" valign="top"><label for="eski_sifre">Eski Þifreniz <span style="color:#CC0000; font-size:13px"><strong>*</strong></span>
+    <br>
+    <span class="ufak_font">Ayarlarý deðiþtirebilmeniz için mutlaka eski þifrenizi girmeniz gerekli</span></label></td>
+    <td width="61%" valign="top">
+        <label>
+        <input name="eski_sifre" type="password" class="profil_input" id="eski_sifre" maxlength="50" />
+        </label></td></tr>
+</table>       
+
+
+    <div class="ayar_baslik"></div>
+ 
+    </div>
+       <!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil --> 
+ <div class="temizle"></div>
+<div align="center">
+  <label>
+  <input type="submit" name="button" id="button" value="G&ouml;nder" class="buton"/>
+  </label>
+  &nbsp;
+  <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+</div>    
+     </form>
+  

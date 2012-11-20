@@ -1,0 +1,50 @@
+<form action="sistem/ihbar.php" method="post" name="form" id="form">
+
+<table width="100%" align="center" cellpadding="3" cellspacing="0" class="tablo_border">
+  
+  <tr class="gri_ust">
+    <td align="left">Mesajý Bildir</td>
+  </tr>
+  <tr class="tableRow">
+    <td align="left">        
+    
+    <table width="98%" align="center" cellpadding="2" cellspacing="0">
+        <tr>
+          <td align="right">
+          Ýhbar Baþlýðý:  
+          <br />
+          <span class="ufak_font" style="color:#CC0000"><i><strong>Zorunlu deðildir.</strong> </i></span>          </td>
+          <td width="77%" align="left" style="padding-left:10px;">
+          <input name="ihbar_baslik"  type="text"  size="80" maxlength="80" id="ihbar_baslik" />
+  <input name="hangi_konu" size="10"  value="{KONU_ID}" type="text" style="display:none;" />
+  <input name="mesaj_id"   size="10"  value="{MESAJ_ID}" type="text" style="display:none;" />
+          </td>
+        </tr>
+        <tr>
+          <td width="23%" align="right">&nbsp;</td>
+          <td width="77%" align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top" width="23%" align="right">
+          Ýhbar Sebebi: 
+           <br />
+        <span class="ufak_font" style="color:#CC0000"><i>Sebep belirtmeniz <strong>zorunlu deðildir</strong>. Ama sebep belirterek moderatörlere daha fazla yardýmcý olabilirsiniz.</i></span>          </td>
+          <td valign="top" width="77%" style="padding-left:10px;"><label>
+            <textarea name="ihbar_sebep" cols="80" rows="10" id="ihbar_sebep"></textarea>
+          </label></td>
+        </tr>
+
+        <tr>
+          <td>&nbsp;</td>
+          <td width="77%" align="left" style="padding-left:10px;">
+            <input id="Submit" name="Submit" class="buton" value="Þikayetimi Ýlet"  tabindex="26" type="submit" />
+            <input name="Reset" id="Reset"  class="buton" value="Formu Temizle" tabindex="28" type="reset" />              </td>
+        </tr>
+    </table>
+  </td>
+ </tr>
+</table>
+<p>&nbsp;</p>
+
+
+</form>

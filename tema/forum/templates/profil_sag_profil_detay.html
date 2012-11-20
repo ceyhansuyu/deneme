@@ -1,0 +1,159 @@
+<form action="sistem/profil_duzenle.php" method="post" name="profil" id="profil">
+
+
+  <div class="sag_taraf_profil">
+       <div class="headerbar">
+        Profil Detaylarý;
+       </div>
+      <div class="sag_taraf_profil_ic">
+        <div class="ayar_baslik">Giriþ ve Gizlilik</div>
+   <input name="do" type="text" value="{DO}" style="display:none;">
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="39%" valign="top">Invisible Mode:</td>
+    <td width="61%" valign="top">
+        <label class="yesno_yes">
+          <input type="radio" name="gizlilik" value="1" id="gizlilik_0" {AKTIF} />
+          Gizlilik Modu Aktif</label><label class="yesno_no">
+          <input name="gizlilik" type="radio" id="gizlilik_1" value="0" {PASIF} />
+          Gizlilik Modu Kapali</label>
+        <br />     <br />
+  <span class="sag_taraf_profil_ic_desc">Görünmez Modda diðer üyeler online olduðunuzu göremez ve 'Kimler Online' listesinde görünmezsiniz.</span>
+    </td></tr>
+  <tr>
+    <td valign="top"><label for="uyelik_amac">Üyelik Amacý ve Ýlgi Alanlarýnýz:</label></td>
+    <td><label>
+      <textarea name="uyelik_amac" id="uyelik_amac" cols="45" rows="5">{KUL_AMAC}</textarea>
+    </label>
+    <br />
+    <span class="sag_taraf_profil_ic_desc">Bu foruma neden üye oldunuz buyrun burada bahsedin</span>
+    </td>
+  </tr>
+</table>
+
+
+    <div class="ayar_baslik">Özel Mesaj Ayarlarý</div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="39%" valign="top">Özel mesaj durumu:</td>
+    <td width="61%" valign="top">
+        <label class="yesno_yes">
+          <input type="radio" name="ozelmesajDURUM" value="evet" id="ozelmesaj_0" {AKTIF_PM_ISTIYOR} />
+          Özel mesaj almak istiyorum</label><label class="yesno_no">
+          <input name="ozelmesajDURUM" type="radio" id="ozelmesaj_1" value="hayir" {PASIF_PM_ISTIYOR} />
+          Özel mesaj almak istemiyorum</label>
+        <br /><br />
+  <span class="sag_taraf_profil_ic_desc">Özel mesaj almak istemiyorsanýz Özel mesaj almak istemiyorum seçeneðini seçmelisiniz.</span>
+    </td></tr>
+  <tr>
+    <td valign="top"><label for="uyelik_amac">Özel Mesaj  Email Bildirimi:</label></td>
+    <td>
+         <label class="yesno_yes">
+          <input type="radio" name="ozelmesaj_email" value="evet" id="ozelmesajemail_0" {AKTIF_EPOSTA_ISTIYOR} />
+          Email bildirimi istiyorum</label><label class="yesno_no">
+          <input name="ozelmesaj_email" type="radio" id="ozelmesajemail_1" value="hayir" {PASIF_EPOSTA_ISTIYOR} />
+           Email bildirimi istemiyorum</label>
+        <br /><br />
+  <span class="sag_taraf_profil_ic_desc">Özel mesaj gelince eposta uyarýsý.</span>
+    </td>
+  </tr>
+</table>
+
+
+
+
+         <div class="ayar_baslik">Ýletiþim  Bilgileri </div>
+         
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top"><label for="yahoo">Yahoo! Messenger Adresi:</label></td>
+    <td valign="top"><input name="yahoo" type="text" class="profil_input" id="yahoo" value="{YAHOO}" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="msn">MSN Messenger Adresi:</label></td>
+    <td valign="top"><input name="msn" type="text" class="profil_input" id="msn" value="{MSN}" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="aim">AIM Kullanýcý Ýsmi:</label></td>
+    <td valign="top"><input name="aim" type="text" class="profil_input" id="aim" value="{AIM}" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="skype">Skype Adresi:</label></td>
+    <td valign="top"><input name="skype" type="text" class="profil_input" id="skype" value="{SKYPE}" maxlength="50" /></td>
+  </tr>
+  <tr>
+    <td width="39%" valign="top"><label for="icq">ICQ Numarasý:</label></td>
+    <td width="61%" valign="top">
+        <label for="icq">
+        <input name="icq" type="text" class="profil_input" id="icq" value="{ICQ}" maxlength="50" />
+        </label></td></tr>
+</table>       
+
+    <div class="ayar_baslik">Ýsteðe Baðlý Bilgiler - Forum üyeleri tarafýndan gürülebilir.</div>
+ 
+    <table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="39%" valign="top"><label for="biyografi">Biyografi:</label></td>
+    <td width="61%" valign="top"><textarea name="biyografi" cols="45" rows="3" class="profil_input" id="biyografi">{BIOGRAFI}</textarea>
+        <br />
+    <span class="sag_taraf_profil_ic_desc">Sizin hakkýnýzda kýsaca biþeyler...</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="yasadigi_yer">Yer:</label></td>
+    <td valign="top"><input name="yasadigi_yer" type="text" class="profil_input" id="yasadigi_yer" value="{YER}" maxlength="50" />
+      <br /><span class="sag_taraf_profil_ic_desc">Yaþadýðýnýz yer</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="hobiler">Hobiler:</label></td>
+    <td valign="top"><input name="hobiler" type="text" class="profil_input" id="hobiler" value="{HOBI}" maxlength="100" />
+      <br />
+    <span class="sag_taraf_profil_ic_desc">Hobileriniz</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="yasiniz">Yaþýnýz:</label></td>
+    <td valign="top"><input name="yasiniz" type="text" class="profil_input" id="yasiniz" value="{YAS}" maxlength="50" />
+      <br />
+      <span class="sag_taraf_profil_ic_desc">Yaþýnýz</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="dogum_tarihi">Doðum Tarihiniz:</label></td>
+    <td valign="top"><input name="dogum_tarihi" type="text" class="profil_input" id="dogum_tarihi" value="{DOGUM_TARIHI}" maxlength="50" />
+      <br />
+      <span class="sag_taraf_profil_ic_desc">Doðum tarihi. Örn: 17.05.1980</span></td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="cinsiyet">Cinsiyetiniz:</label></td>
+    <td valign="top"><label>
+      <select name="cinsiyet" id="cinsiyet">
+        <option value="Erkek"  {CINS_ERKEK} >Erkek</option>
+        <option value="Kadýn" {CINS_BAYAN}>Kadýn</option>
+                              </select>
+    </label><img src="{CINS_IKON}" title="" alt="" />
+      <br />
+      <span class="sag_taraf_profil_ic_desc">Cinsiyetiniz</span>      </td>
+  </tr>
+  <tr>
+    <td valign="top"><label for="label">Meslek:</label></td>
+    <td valign="top"><input name="meslek" type="text" class="profil_input" id="label" value="{MESLEK}" maxlength="50" />
+        <br />
+      <span class="sag_taraf_profil_ic_desc">Mesleðiniz</span></td>
+  </tr>
+  <tr>
+    <td valign="top">Gerçek Ýsminiz veya Takma Ýsminiz:</td>
+    <td valign="top"><input name="gercek_ad" type="text" class="profil_input" id="meslek" value="{KUL_GERCEK_AD}" maxlength="50" />
+      <br />
+      <span class="sag_taraf_profil_ic_desc">Size nasýl hitap ederler...</span></td>
+  </tr>
+</table>     
+ 
+  </div><!-- sag_taraf_profil_ic --> 
+     </div><!-- sag_taraf_profil -->    
+<div class="temizle"></div>
+<div align="center">
+  <label>
+  <input type="submit" name="button" id="button" value="G&ouml;nder" class="buton"/>
+  </label>
+  &nbsp;
+  <input type="reset" name="button2" id="button2" value="Temizle" class="buton"/>
+</div>
+  </form>

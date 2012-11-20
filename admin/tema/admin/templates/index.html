@@ -1,0 +1,38 @@
+<br /><br /><br /><br />
+<table width="" class="profil_topla" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>	
+    
+    <!-- INCLUDE sol_menu.html -->
+    
+    <!-- IF DO == "ayar" -->
+          <!-- INCLUDE ayarlar.html -->
+    <!-- ENDIF -->
+    
+    <!-- IF DO == "forum_yonet" -->
+          <!-- INCLUDE forum_yonetimi.html -->
+    <!-- ENDIF -->    
+    
+    <!-- IF DO == "forum_ekle" -->
+          <!-- INCLUDE forum_ekle.html -->
+    <!-- ENDIF -->   
+    
+    <!-- IF DO == "forum_duzenle" -->
+          <!-- INCLUDE forum_duzenle.html -->
+    <!-- ENDIF -->      
+    
+        
+    <!-- IF DO == "gruplar" and ISLEM == "" -->
+          <!-- INCLUDE kullanici_gruplar.html -->
+    <!-- ENDIF -->
+    
+    <!-- IF DO == "gruplar" and ISLEM == "guncelle" -->
+          <!-- INCLUDE kullanici_gruplari_duzenle.html -->
+    <!-- ENDIF -->
+        
+    <!-- IF DO == "" -->
+          <!-- INCLUDE ayarlar.html -->
+    <!-- ENDIF -->
+    </td>
+  </tr>
+</table>
